@@ -64,3 +64,6 @@ token.json
 # Coverage
 coverage_report
 .coverage
+
+# FSA RSI optimization results
+**/rsi_*optimization_results.json
