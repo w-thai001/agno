@@ -1,0 +1,13 @@
+# FSA-0.1 MLA Task Deconstructor Dependencies
+
+# Core dependencies (all part of Python standard library - no external deps needed!)
+# This makes FSA-0.1 truly zero-dependency and ultra-lightweight
+
+# Testing dependencies (development only)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional: For enhanced NLP (not required for core functionality)
+# Uncomment if you want to add LLM integration for better task parsing
+# openai>=1.0.0
+# anthropic>=0.18.0
