@@ -26,6 +26,10 @@ This module provides a production-ready FSA framework with specialized agents:
 - FSA Circuit Breaker: Fault tolerance and cascading failure prevention
 - FSA Debugger: Interactive debugging with breakpoints and inspection
 - FSA Auto-Healer: Automatic error recovery and self-healing
+
+**Integration FSAs (Phase 3D):**
+- FSA Rate Limiter: Resource control and request throttling
+- FSA Event Bus: Pub/sub messaging for decoupled communication
 """
 
 from agno.fsa.base import FSA, FSAState, FSATransition
@@ -45,6 +49,8 @@ from agno.fsa.performance_profiler import FSAPerformanceProfiler
 from agno.fsa.circuit_breaker import FSACircuitBreaker
 from agno.fsa.debugger import FSADebugger
 from agno.fsa.auto_healer import FSAAutoHealer
+from agno.fsa.rate_limiter import FSARateLimiter
+from agno.fsa.event_bus import FSAEventBus
 
 __all__ = [
     # Base
@@ -71,4 +77,7 @@ __all__ = [
     "FSACircuitBreaker",
     "FSADebugger",
     "FSAAutoHealer",
+    # Integration FSAs (Phase 3D)
+    "FSARateLimiter",
+    "FSAEventBus",
 ]
