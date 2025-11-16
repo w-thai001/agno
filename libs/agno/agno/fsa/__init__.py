@@ -10,11 +10,17 @@ This module provides a production-ready FSA framework with specialized agents:
 - RSI Code Optimizer: Self-improving code optimizer with recursive self-improvement
 - Code Quality Validator: Validates code quality and standards
 
-**Tooling FSAs (Phase 3):**
+**Tooling FSAs (Phase 3A):**
 - FSA Validator: Validates FSA definitions for correctness and completeness
 - FSA Documentation Generator: Auto-generates comprehensive documentation
 - FSA Testing Framework: Comprehensive testing suite for FSAs
 - FSA Pattern Library: Reusable FSA patterns and templates
+
+**Advanced Tooling FSAs (Phase 3B):**
+- FSA Monitoring Dashboard: Real-time monitoring and health tracking
+- FSA Workflow Designer: Visual FSA builder without code
+- FSA Serialization: Save/load FSAs and checkpoint management
+- FSA Performance Profiler: Performance analysis and bottleneck detection
 """
 
 from agno.fsa.base import FSA, FSAState, FSATransition
@@ -27,6 +33,10 @@ from agno.fsa.fsa_validator import FSAValidator
 from agno.fsa.doc_generator import FSADocGenerator
 from agno.fsa.testing_framework import FSATestingFramework
 from agno.fsa.pattern_library import FSAPatternLibrary
+from agno.fsa.monitoring_dashboard import FSAMonitoringDashboard
+from agno.fsa.workflow_designer import FSAWorkflowDesigner
+from agno.fsa.serialization import FSASerialization
+from agno.fsa.performance_profiler import FSAPerformanceProfiler
 
 __all__ = [
     # Base
@@ -39,9 +49,14 @@ __all__ = [
     "MLATaskDeconstructor",
     "RSICodeOptimizer",
     "CodeQualityValidator",
-    # Tooling FSAs
+    # Tooling FSAs (Phase 3A)
     "FSAValidator",
     "FSADocGenerator",
     "FSATestingFramework",
     "FSAPatternLibrary",
+    # Advanced Tooling FSAs (Phase 3B)
+    "FSAMonitoringDashboard",
+    "FSAWorkflowDesigner",
+    "FSASerialization",
+    "FSAPerformanceProfiler",
 ]
