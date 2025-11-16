@@ -21,6 +21,11 @@ This module provides a production-ready FSA framework with specialized agents:
 - FSA Workflow Designer: Visual FSA builder without code
 - FSA Serialization: Save/load FSAs and checkpoint management
 - FSA Performance Profiler: Performance analysis and bottleneck detection
+
+**Resilience FSAs (Phase 3C):**
+- FSA Circuit Breaker: Fault tolerance and cascading failure prevention
+- FSA Debugger: Interactive debugging with breakpoints and inspection
+- FSA Auto-Healer: Automatic error recovery and self-healing
 """
 
 from agno.fsa.base import FSA, FSAState, FSATransition
@@ -37,6 +42,9 @@ from agno.fsa.monitoring_dashboard import FSAMonitoringDashboard
 from agno.fsa.workflow_designer import FSAWorkflowDesigner
 from agno.fsa.serialization import FSASerialization
 from agno.fsa.performance_profiler import FSAPerformanceProfiler
+from agno.fsa.circuit_breaker import FSACircuitBreaker
+from agno.fsa.debugger import FSADebugger
+from agno.fsa.auto_healer import FSAAutoHealer
 
 __all__ = [
     # Base
@@ -59,4 +67,8 @@ __all__ = [
     "FSAWorkflowDesigner",
     "FSASerialization",
     "FSAPerformanceProfiler",
+    # Resilience FSAs (Phase 3C)
+    "FSACircuitBreaker",
+    "FSADebugger",
+    "FSAAutoHealer",
 ]
