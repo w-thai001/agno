@@ -51,6 +51,21 @@ from agno.fsas.dependency_optimizer import (
     ResolutionStrategy,
 )
 
+from agno.fsas.code_analyzer import (
+    CodeAnalyzerFSA,
+    CodeAnalyzerError,
+    CodeAnalysisReport,
+    ComplexityMetrics,
+    CodeSmell,
+    DesignPattern,
+    SecurityIssue,
+    RefactoringSuggestion,
+    TypeCoverageReport,
+    DocQualityReport,
+    SmellSeverity,
+    SecuritySeverity,
+)
+
 __all__ = [
     # Generator
     "FSACategory",
@@ -93,4 +108,17 @@ __all__ = [
     "DependencyType",
     "ConflictType",
     "ResolutionStrategy",
+    # Code Analyzer
+    "CodeAnalyzerFSA",
+    "CodeAnalyzerError",
+    "CodeAnalysisReport",
+    "ComplexityMetrics",
+    "CodeSmell",
+    "DesignPattern",
+    "SecurityIssue",
+    "RefactoringSuggestion",
+    "TypeCoverageReport",
+    "DocQualityReport",
+    "SmellSeverity",
+    "SecuritySeverity",
 ]
