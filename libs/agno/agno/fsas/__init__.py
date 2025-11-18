@@ -22,7 +22,21 @@ from agno.fsas.infrastructure.network_manager_fsa import (
     NetworkUnreachable,
 )
 
+from agno.fsas.infrastructure.database_connector_fsa import (
+    DatabaseConnectorFSA,
+    DatabaseConfig,
+    DatabaseType,
+    QueryBuilder,
+    Migration,
+    TransactionManager,
+    TransactionState,
+    QueryError,
+    TransactionError,
+    MigrationError,
+)
+
 __all__ = [
+    # Network Manager
     "NetworkManagerFSA",
     "NetworkRequest",
     "NetworkResponse",
@@ -38,4 +52,15 @@ __all__ = [
     "ProxyError",
     "ProtocolError",
     "NetworkUnreachable",
+    # Database Connector
+    "DatabaseConnectorFSA",
+    "DatabaseConfig",
+    "DatabaseType",
+    "QueryBuilder",
+    "Migration",
+    "TransactionManager",
+    "TransactionState",
+    "QueryError",
+    "TransactionError",
+    "MigrationError",
 ]
