@@ -17,6 +17,7 @@ from agno.fsas.factory_pattern_fsa import FactoryPatternFSA
 from agno.fsas.builder_pattern_fsa import BuilderPatternFSA
 from agno.fsas.singleton_pattern_fsa import SingletonPatternFSA
 from agno.fsas.decorator_pattern_fsa import DecoratorPatternFSA
+from agno.fsas.adapter_pattern_fsa import AdapterPatternFSA
 
 __all__ = [
     "MessageQueueFSA",
@@ -36,4 +37,5 @@ __all__ = [
     "BuilderPatternFSA",
     "SingletonPatternFSA",
     "DecoratorPatternFSA",
+    "AdapterPatternFSA",
 ]
