@@ -1,0 +1,30 @@
+# Performance Profiler FSA Requirements
+
+# Core dependencies
+psutil>=5.9.0         # System and process utilities
+numpy>=1.21.0         # Numerical computing
+
+# Optional dependencies for advanced features
+# Uncomment as needed:
+
+# GPU profiling
+# pynvml>=11.0.0       # NVIDIA GPU monitoring
+# py3nvml>=0.2.7       # Alternative NVIDIA GPU monitoring
+
+# Advanced memory profiling
+# memory_profiler>=0.61.0  # Line-by-line memory profiling
+# pympler>=1.0.1           # Memory profiling tools
+
+# Flame graph generation
+# py-spy>=0.3.14       # Sampling profiler for flame graphs
+# flamegraph>=0.1      # Flame graph generation
+
+# Testing
+pytest>=7.0.0         # Testing framework
+pytest-asyncio>=0.21.0  # Async test support
+pytest-cov>=4.0.0     # Coverage reporting
+
+# Code quality (optional)
+# black>=23.0.0        # Code formatting
+# mypy>=1.0.0          # Type checking
+# ruff>=0.1.0          # Fast linting
