@@ -16,7 +16,20 @@ from agno.fsas.infrastructure.data_transformer_fsa import (
     TransformMetrics,
 )
 
+from agno.fsas.infrastructure.logger_fsa import (
+    LoggerFSA,
+    LoggerState,
+    LogLevel,
+    HandlerType,
+    FormatterType,
+    HandlerConfig,
+    LogRecord,
+    LogMetrics,
+    AuditLogger,
+)
+
 __all__ = [
+    # Data Transformer FSA
     "DataTransformerFSA",
     "TransformationState",
     "TransformationType",
@@ -25,4 +38,14 @@ __all__ = [
     "TransformationError",
     "TransformPipeline",
     "TransformMetrics",
+    # Logger FSA
+    "LoggerFSA",
+    "LoggerState",
+    "LogLevel",
+    "HandlerType",
+    "FormatterType",
+    "HandlerConfig",
+    "LogRecord",
+    "LogMetrics",
+    "AuditLogger",
 ]
