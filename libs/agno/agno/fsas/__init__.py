@@ -9,6 +9,7 @@ from agno.fsas.policy_engine_fsa import PolicyEngineFSA
 from agno.fsas.task_queue_fsa import TaskQueueFSA
 from agno.fsas.session_manager_fsa import SessionManagerFSA
 from agno.fsas.transaction_manager_fsa import TransactionManagerFSA
+from agno.fsas.dependency_injector_fsa import DependencyInjectorFSA
 
 __all__ = [
     "MessageQueueFSA",
@@ -20,4 +21,5 @@ __all__ = [
     "TaskQueueFSA",
     "SessionManagerFSA",
     "TransactionManagerFSA",
+    "DependencyInjectorFSA",
 ]
