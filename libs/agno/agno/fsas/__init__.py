@@ -28,6 +28,16 @@ from agno.fsas.infrastructure.logger_fsa import (
     AuditLogger,
 )
 
+from agno.fsas.infrastructure.network_manager_fsa import (
+    NetworkManagerFSA,
+    NetworkState,
+    HTTPMethod,
+    LoadBalancingStrategy,
+    CircuitBreakerConfig,
+    RetryConfig,
+    RateLimitConfig,
+)
+
 __all__ = [
     # Data Transformer FSA
     "DataTransformerFSA",
@@ -48,4 +58,12 @@ __all__ = [
     "LogRecord",
     "LogMetrics",
     "AuditLogger",
+    # Network Manager FSA
+    "NetworkManagerFSA",
+    "NetworkState",
+    "HTTPMethod",
+    "LoadBalancingStrategy",
+    "CircuitBreakerConfig",
+    "RetryConfig",
+    "RateLimitConfig",
 ]

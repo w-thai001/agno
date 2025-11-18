@@ -17,6 +17,13 @@ from agno.fsas.infrastructure.logger_fsa import (
     FormatterType,
 )
 
+from agno.fsas.infrastructure.network_manager_fsa import (
+    NetworkManagerFSA,
+    NetworkState,
+    HTTPMethod,
+    LoadBalancingStrategy,
+)
+
 __all__ = [
     "DataTransformerFSA",
     "TransformationState",
@@ -27,4 +34,8 @@ __all__ = [
     "LogLevel",
     "HandlerType",
     "FormatterType",
+    "NetworkManagerFSA",
+    "NetworkState",
+    "HTTPMethod",
+    "LoadBalancingStrategy",
 ]
