@@ -11,6 +11,7 @@ from agno.fsas.session_manager_fsa import SessionManagerFSA
 from agno.fsas.transaction_manager_fsa import TransactionManagerFSA
 from agno.fsas.dependency_injector_fsa import DependencyInjectorFSA
 from agno.fsas.service_locator_fsa import ServiceLocatorFSA
+from agno.fsas.observer_pattern_fsa import ObserverPatternFSA
 
 __all__ = [
     "MessageQueueFSA",
@@ -24,4 +25,5 @@ __all__ = [
     "TransactionManagerFSA",
     "DependencyInjectorFSA",
     "ServiceLocatorFSA",
+    "ObserverPatternFSA",
 ]
