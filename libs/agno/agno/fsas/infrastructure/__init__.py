@@ -10,10 +10,23 @@ from agno.fsas.infrastructure.encryption_fsa import (
     CertificateManager,
 )
 
+from agno.fsas.infrastructure.authentication_fsa import (
+    AuthenticationFSA,
+    UserManager,
+    SessionManager,
+    JWTTokenManager,
+    OAuth2Provider,
+)
+
 __all__ = [
     "EncryptionFSA",
     "KeyManager",
     "EncryptionEngine",
     "CryptoOperations",
     "CertificateManager",
+    "AuthenticationFSA",
+    "UserManager",
+    "SessionManager",
+    "JWTTokenManager",
+    "OAuth2Provider",
 ]
