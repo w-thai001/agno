@@ -14,6 +14,7 @@ from agno.fsas.service_locator_fsa import ServiceLocatorFSA
 from agno.fsas.observer_pattern_fsa import ObserverPatternFSA
 from agno.fsas.command_pattern_fsa import CommandPatternFSA
 from agno.fsas.factory_pattern_fsa import FactoryPatternFSA
+from agno.fsas.builder_pattern_fsa import BuilderPatternFSA
 
 __all__ = [
     "MessageQueueFSA",
@@ -30,4 +31,5 @@ __all__ = [
     "ObserverPatternFSA",
     "CommandPatternFSA",
     "FactoryPatternFSA",
+    "BuilderPatternFSA",
 ]
