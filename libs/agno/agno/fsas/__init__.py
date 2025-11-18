@@ -18,7 +18,23 @@ from agno.fsas.generator import (
     GitOperationError,
 )
 
+from agno.fsas.performance_profiler import (
+    PerformanceProfilerFSA,
+    PerformanceProfilerError,
+    ProfileResult,
+    ProfileReport,
+    MemoryProfile,
+    CPUProfile,
+    Bottleneck,
+    AnalysisReport,
+    ComparisonReport,
+    CascadeProfile,
+    ProfilingSeverity,
+    ProfileType,
+)
+
 __all__ = [
+    # Generator
     "FSACategory",
     "FSAGenerator",
     "FSAGeneratorError",
@@ -30,4 +46,17 @@ __all__ = [
     "TemplateRenderError",
     "CodeValidationError",
     "GitOperationError",
+    # Performance Profiler
+    "PerformanceProfilerFSA",
+    "PerformanceProfilerError",
+    "ProfileResult",
+    "ProfileReport",
+    "MemoryProfile",
+    "CPUProfile",
+    "Bottleneck",
+    "AnalysisReport",
+    "ComparisonReport",
+    "CascadeProfile",
+    "ProfilingSeverity",
+    "ProfileType",
 ]
