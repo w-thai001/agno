@@ -1,0 +1,17 @@
+# Data Transformer FSA Requirements
+
+# Core dependencies
+pandas>=1.5.0
+pyarrow>=10.0.0
+lxml>=4.9.0
+PyYAML>=6.0
+avro-python3>=1.10.0
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional dependencies for advanced features
+# Uncomment as needed:
+# protobuf>=4.0.0  # For Protocol Buffers support
+# numpy>=1.24.0    # For numerical operations
