@@ -33,6 +33,24 @@ from agno.fsas.performance_profiler import (
     ProfileType,
 )
 
+from agno.fsas.dependency_optimizer import (
+    DependencyOptimizerFSA,
+    DependencyOptimizerError,
+    CircularDependencyError,
+    ConflictResolutionError,
+    DependencyGraph,
+    DependencyNode,
+    Cycle,
+    Conflict,
+    Resolution,
+    ExecutionPlan,
+    OptimizedGraph,
+    ValidationResult,
+    DependencyType,
+    ConflictType,
+    ResolutionStrategy,
+)
+
 __all__ = [
     # Generator
     "FSACategory",
@@ -59,4 +77,20 @@ __all__ = [
     "CascadeProfile",
     "ProfilingSeverity",
     "ProfileType",
+    # Dependency Optimizer
+    "DependencyOptimizerFSA",
+    "DependencyOptimizerError",
+    "CircularDependencyError",
+    "ConflictResolutionError",
+    "DependencyGraph",
+    "DependencyNode",
+    "Cycle",
+    "Conflict",
+    "Resolution",
+    "ExecutionPlan",
+    "OptimizedGraph",
+    "ValidationResult",
+    "DependencyType",
+    "ConflictType",
+    "ResolutionStrategy",
 ]
