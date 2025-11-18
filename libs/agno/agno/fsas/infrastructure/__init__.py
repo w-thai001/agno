@@ -21,6 +21,13 @@ from agno.fsas.infrastructure.database_connector_fsa import (
     Migration,
 )
 
+from agno.fsas.infrastructure.message_broker_fsa import (
+    MessageBrokerFSA,
+    Message,
+    MessagePriority,
+    DeliveryMode,
+)
+
 __all__ = [
     # Network Manager
     "NetworkManagerFSA",
@@ -34,4 +41,9 @@ __all__ = [
     "DatabaseType",
     "QueryBuilder",
     "Migration",
+    # Message Broker
+    "MessageBrokerFSA",
+    "Message",
+    "MessagePriority",
+    "DeliveryMode",
 ]

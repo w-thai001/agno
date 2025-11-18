@@ -35,6 +35,18 @@ from agno.fsas.infrastructure.database_connector_fsa import (
     MigrationError,
 )
 
+from agno.fsas.infrastructure.message_broker_fsa import (
+    MessageBrokerFSA,
+    Message,
+    MessagePattern,
+    MessagePriority,
+    MessageState,
+    DeliveryMode,
+    PublishError,
+    ConsumeError,
+    DeliveryError,
+)
+
 __all__ = [
     # Network Manager
     "NetworkManagerFSA",
@@ -63,4 +75,14 @@ __all__ = [
     "QueryError",
     "TransactionError",
     "MigrationError",
+    # Message Broker
+    "MessageBrokerFSA",
+    "Message",
+    "MessagePattern",
+    "MessagePriority",
+    "MessageState",
+    "DeliveryMode",
+    "PublishError",
+    "ConsumeError",
+    "DeliveryError",
 ]
