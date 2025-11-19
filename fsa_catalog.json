@@ -1,0 +1,1133 @@
+{
+  "metadata": {
+    "generated_at": "2025-11-19 09:09:38",
+    "repository": "w-thai001/agno",
+    "total_files_analyzed": 39
+  },
+  "statistics": {
+    "total_count": 39,
+    "by_language": {
+      "Python": 36,
+      "Markdown": 1,
+      "Text": 2
+    },
+    "by_domain": {
+      "messaging": 9,
+      "networking": 19,
+      "workflow": 9,
+      "concurrency": 2
+    },
+    "by_complexity": {
+      "medium": 12,
+      "low": 26,
+      "high": 1
+    },
+    "total_loc": 5360,
+    "avg_loc": 137.43589743589743
+  },
+  "catalog": [
+    {
+      "filepath": "cookbook/getting_started/09_research_workflow.py",
+      "filename": "09_research_workflow.py",
+      "language": "Python",
+      "description": "\ud83c\udf93 Advanced Research Workflow - Your AI Research Assistant!",
+      "domain": "messaging",
+      "loc": 427,
+      "classes": [
+        "SearchResults",
+        "ScrapedArticle",
+        "academic",
+        "ResearchReportGenerator",
+        "Article"
+      ],
+      "functions": [
+        "run",
+        "get_cached_scraped_articles",
+        "get_search_results",
+        "add_scraped_articles_to_cache",
+        "add_report_to_cache",
+        "orchestrates",
+        "get_cached_search_results",
+        "get_cached_report",
+        "write_research_report",
+        "utilizes",
+        "add_search_results_to_cache",
+        "scrape_articles"
+      ],
+      "dependencies": [
+        "agno.utils.pprint",
+        "DuckDuckGoTools",
+        "agno.workflow",
+        "BaseModel",
+        "agno.utils.log",
+        "pydantic",
+        "agno.models.openai",
+        "Dict",
+        "OpenAIChat",
+        "Agent",
+        "agno.tools.newspaper4k",
+        "pprint_run_response",
+        "textwrap",
+        "dedent",
+        "json"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/storage/json_storage/json_storage_for_workflow.py",
+      "filename": "json_storage_for_workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in json_storage_for_workflow.py",
+      "domain": "networking",
+      "loc": 89,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.utils.pprint",
+        "pprint_run_response",
+        "typing",
+        "agno.workflow",
+        "Workflow",
+        "httpx",
+        "agno.utils.log",
+        "json",
+        "JsonStorage",
+        "agno.storage.json",
+        "Iterator",
+        "RunResponse",
+        "Newspaper4kTools",
+        "agno.agent"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/storage/mongodb_storage/mongodb_storage_for_workflow.py",
+      "filename": "mongodb_storage_for_workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in mongodb_storage_for_workflow.py",
+      "domain": "networking",
+      "loc": 95,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.utils.pprint",
+        "pprint_run_response",
+        "typing",
+        "agno.workflow",
+        "Workflow",
+        "logger",
+        "httpx",
+        "MongoDbStorage",
+        "agno.utils.log",
+        "json",
+        "Iterator",
+        "RunResponse",
+        "Newspaper4kTools",
+        "agno.agent"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/storage/postgres_storage/postgres_storage_for_workflow.py",
+      "filename": "postgres_storage_for_workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in postgres_storage_for_workflow.py",
+      "domain": "networking",
+      "loc": 93,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.utils.pprint",
+        "PostgresStorage",
+        "pprint_run_response",
+        "typing",
+        "agno.workflow",
+        "Workflow",
+        "httpx",
+        "agno.utils.log",
+        "json",
+        "Iterator",
+        "RunResponse",
+        "Newspaper4kTools",
+        "agno.storage.postgres",
+        "agno.agent"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/storage/singlestore_storage/singlestore_storage_for_workflow.py",
+      "filename": "singlestore_storage_for_workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in singlestore_storage_for_workflow.py",
+      "domain": "networking",
+      "loc": 122,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "agno.utils.certs",
+        "agno.utils.pprint",
+        "agno.workflow",
+        "download_cert",
+        "Workflow",
+        "agno.utils.log",
+        "RunResponse",
+        "create_engine",
+        "os",
+        "getenv",
+        "Agent",
+        "agno.tools.newspaper4k",
+        "agno.run.response",
+        "pprint_run_response",
+        "json"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/storage/sqllite_storage/sqlite_storage_for_workflow.py",
+      "filename": "sqlite_storage_for_workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in sqlite_storage_for_workflow.py",
+      "domain": "networking",
+      "loc": 90,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.utils.pprint",
+        "pprint_run_response",
+        "typing",
+        "agno.workflow",
+        "Workflow",
+        "httpx",
+        "agno.utils.log",
+        "json",
+        "Iterator",
+        "agno.storage.sqlite",
+        "RunResponse",
+        "SqliteStorage",
+        "Newspaper4kTools",
+        "agno.agent"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/storage/yaml_storage/yaml_storage_for_workflow.py",
+      "filename": "yaml_storage_for_workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in yaml_storage_for_workflow.py",
+      "domain": "networking",
+      "loc": 89,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.utils.pprint",
+        "pprint_run_response",
+        "typing",
+        "agno.workflow",
+        "Workflow",
+        "httpx",
+        "agno.utils.log",
+        "json",
+        "Iterator",
+        "RunResponse",
+        "YamlStorage",
+        "Newspaper4kTools",
+        "agno.agent",
+        "agno.storage.yaml"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/__init__.py",
+      "filename": "__init__.py",
+      "language": "Python",
+      "description": "FSA implementation in __init__.py",
+      "domain": "workflow",
+      "loc": 1,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/blog_post_generator.py",
+      "filename": "blog_post_generator.py",
+      "language": "Python",
+      "description": "\ud83c\udfa8 Blog Post Generator - Your AI Content Creation Studio!",
+      "domain": "messaging",
+      "loc": 433,
+      "classes": [
+        "SearchResults",
+        "ScrapedArticle",
+        "NewsArticle",
+        "BlogPostGenerator"
+      ],
+      "functions": [
+        "run",
+        "get_cached_scraped_articles",
+        "get_search_results",
+        "add_scraped_articles_to_cache",
+        "get_cached_search_results",
+        "add_blog_post_to_cache",
+        "get_cached_blog_post",
+        "add_search_results_to_cache",
+        "scrape_articles"
+      ],
+      "dependencies": [
+        "agno.utils.pprint",
+        "DuckDuckGoTools",
+        "agno.workflow",
+        "BaseModel",
+        "agno.utils.log",
+        "pydantic",
+        "agno.models.openai",
+        "Dict",
+        "OpenAIChat",
+        "Agent",
+        "agno.tools.newspaper4k",
+        "random",
+        "pprint_run_response",
+        "textwrap",
+        "dedent"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/__init__.py",
+      "filename": "__init__.py",
+      "language": "Python",
+      "description": "FSA implementation in __init__.py",
+      "domain": "workflow",
+      "loc": 1,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/config.py",
+      "filename": "config.py",
+      "language": "Python",
+      "description": "Define the enums",
+      "domain": "networking",
+      "loc": 18,
+      "classes": [
+        "PostType"
+      ],
+      "functions": [],
+      "dependencies": [
+        "Enum",
+        "dotenv",
+        "os",
+        "enum",
+        "load_dotenv"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/prompts.py",
+      "filename": "prompts.py",
+      "language": "Python",
+      "description": "Planner Agents Configuration",
+      "domain": "concurrency",
+      "loc": 109,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/readme.md",
+      "filename": "readme.md",
+      "language": "Markdown",
+      "description": "Content Creator Agent Workflow",
+      "domain": "networking",
+      "loc": 77,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/requirements.txt",
+      "filename": "requirements.txt",
+      "language": "Text",
+      "description": "FSA implementation in requirements.txt",
+      "domain": "networking",
+      "loc": 10,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/scheduler.py",
+      "filename": "scheduler.py",
+      "language": "Python",
+      "description": "Convert JSON thread format to Typefully's format with 4 newlines between tweets.",
+      "domain": "concurrency",
+      "loc": 123,
+      "classes": [],
+      "functions": [
+        "json_to_linkedin_content",
+        "json_to_typefully_content",
+        "schedule",
+        "schedule_thread"
+      ],
+      "dependencies": [
+        "cookbook.workflows.content_creator_workflow.config",
+        "typing",
+        "dotenv",
+        "BaseModel",
+        "pydantic",
+        "agno.utils.log",
+        "load_dotenv",
+        "requests",
+        "Any",
+        "datetime",
+        "logger"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/content_creator/workflow.py",
+      "filename": "workflow.py",
+      "language": "Python",
+      "description": "Load environment variables",
+      "domain": "messaging",
+      "loc": 203,
+      "classes": [
+        "BlogAnalyzer",
+        "LinkedInPost",
+        "ContentPlanningWorkflow",
+        "Tweet",
+        "Thread"
+      ],
+      "functions": [
+        "schedule_and_publish",
+        "scrape_blog_post",
+        "generate_plan",
+        "run"
+      ],
+      "dependencies": [
+        "FirecrawlTools",
+        "agno.workflow",
+        "BaseModel",
+        "Workflow",
+        "agno.utils.log",
+        "pydantic",
+        "agno.models.openai",
+        "load_dotenv",
+        "OpenAIChat",
+        "Agent",
+        "schedule",
+        "agno.run.response",
+        "dotenv",
+        "json",
+        "agno.tools.firecrawl"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/employee_recruiter.py",
+      "filename": "employee_recruiter.py",
+      "language": "Python",
+      "description": "FSA implementation in employee_recruiter.py",
+      "domain": "messaging",
+      "loc": 203,
+      "classes": [
+        "EmployeeRecruitmentWorkflow",
+        "Email",
+        "ScreeningResult",
+        "CandidateScheduledCall"
+      ],
+      "functions": [
+        "extract_text_from_pdf",
+        "run"
+      ],
+      "dependencies": [
+        "pypdf",
+        "agno.models.openai.chat",
+        "BaseModel",
+        "Workflow",
+        "agno.utils.log",
+        "pydantic",
+        "RunResponse",
+        "os",
+        "OpenAIChat",
+        "datetime",
+        "agno.workflow.workflow",
+        "Agent",
+        "PdfReader",
+        "agno.run.response",
+        "io"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/hackernews_reporter.py",
+      "filename": "hackernews_reporter.py",
+      "language": "Python",
+      "description": "Please install dependencies using:",
+      "domain": "networking",
+      "loc": 91,
+      "classes": [
+        "HackerNewsReporter"
+      ],
+      "functions": [
+        "to",
+        "run",
+        "get_top_hackernews_stories"
+      ],
+      "dependencies": [
+        "pprint_run_response",
+        "agno.utils.pprint",
+        "typing",
+        "agno.workflow",
+        "Workflow",
+        "httpx",
+        "agno.utils.log",
+        "json",
+        "Iterator",
+        "Newspaper4kTools",
+        "agno.agent",
+        "logger",
+        "Agent",
+        "agno.tools.newspaper4k"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/investment_report_generator.py",
+      "filename": "investment_report_generator.py",
+      "language": "Python",
+      "description": "\ud83d\udcb0 Investment Report Generator - Your AI Financial Analysis Studio!",
+      "domain": "networking",
+      "loc": 230,
+      "classes": [
+        "InvestmentReportGenerator"
+      ],
+      "functions": [
+        "run"
+      ],
+      "dependencies": [
+        "Path",
+        "agno.utils.pprint",
+        "agno.workflow",
+        "Workflow",
+        "agno.utils.log",
+        "rmtree",
+        "agno.tools.yfinance",
+        "Agent",
+        "random",
+        "pprint_run_response",
+        "textwrap",
+        "dedent",
+        "shutil",
+        "Iterator",
+        "agno.storage.sqlite"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/personalized_email_generator.py",
+      "filename": "personalized_email_generator.py",
+      "language": "Python",
+      "description": "FSA implementation in personalized_email_generator.py",
+      "domain": "messaging",
+      "loc": 465,
+      "classes": [
+        "PersonalisedEmailGenerator",
+        "CompanyInfo"
+      ],
+      "functions": [
+        "run",
+        "get_cached_company_data",
+        "get_cached_email",
+        "cache_company_data",
+        "main",
+        "cache_email"
+      ],
+      "dependencies": [
+        "ExaTools",
+        "agno.utils.pprint",
+        "agno.workflow",
+        "BaseModel",
+        "agno.utils.log",
+        "pydantic",
+        "agno.models.openai",
+        "Dict",
+        "RunResponse",
+        "agno.tools.exa",
+        "OpenAIChat",
+        "datetime",
+        "Agent",
+        "pprint_run_response",
+        "textwrap"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/product_manager/__init__.py",
+      "filename": "__init__.py",
+      "language": "Python",
+      "description": "FSA implementation in __init__.py",
+      "domain": "workflow",
+      "loc": 1,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/product_manager/meeting_notes.txt",
+      "filename": "meeting_notes.txt",
+      "language": "Text",
+      "description": "FSA implementation in meeting_notes.txt",
+      "domain": "workflow",
+      "loc": 31,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/product_manager/product_manager.py",
+      "filename": "product_manager.py",
+      "language": "Python",
+      "description": "FSA implementation in product_manager.py",
+      "domain": "networking",
+      "loc": 178,
+      "classes": [
+        "ProductManagerWorkflow",
+        "TaskList",
+        "Task",
+        "LinearIssue",
+        "LinearIssueList"
+      ],
+      "functions": [
+        "create_linear_issues",
+        "get_tasks_from_cache",
+        "get_tasks_from_meeting_notes",
+        "run"
+      ],
+      "dependencies": [
+        "agno.tools.slack",
+        "BaseModel",
+        "Workflow",
+        "agno.utils.log",
+        "pydantic",
+        "agno.storage.postgres",
+        "Dict",
+        "PostgresStorage",
+        "os",
+        "datetime",
+        "agno.workflow.workflow",
+        "Agent",
+        "agno.run.response",
+        "agno.agent.agent",
+        "SlackTools"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/reddit_post_generator.py",
+      "filename": "reddit_post_generator.py",
+      "language": "Python",
+      "description": "FSA implementation in reddit_post_generator.py",
+      "domain": "networking",
+      "loc": 53,
+      "classes": [],
+      "functions": [],
+      "dependencies": [
+        "DuckDuckGoTools",
+        "agno.tools.reddit",
+        "RedditTools",
+        "agno.tools.duckduckgo",
+        "agno.agent",
+        "Agent"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/self_evaluating_content_creator.py",
+      "filename": "self_evaluating_content_creator.py",
+      "language": "Python",
+      "description": "FSA implementation in self_evaluating_content_creator.py",
+      "domain": "messaging",
+      "loc": 67,
+      "classes": [
+        "SelfEvaluationWorkflow",
+        "Feedback"
+      ],
+      "functions": [
+        "run"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.utils.pprint",
+        "pprint_run_response",
+        "agno.models.openai.chat",
+        "BaseModel",
+        "Workflow",
+        "agno.agent.agent",
+        "pydantic",
+        "OpenAIChat",
+        "agno.workflow.workflow",
+        "Agent",
+        "RunResponse"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "cookbook/workflows/startup_idea_validator.py",
+      "filename": "startup_idea_validator.py",
+      "language": "Python",
+      "description": "FSA implementation in startup_idea_validator.py",
+      "domain": "messaging",
+      "loc": 276,
+      "classes": [
+        "IdeaClarification",
+        "StartupIdeaValidator",
+        "MarketResearch"
+      ],
+      "functions": [
+        "get_competitor_analysis",
+        "get_market_research",
+        "run",
+        "get_idea_clarification"
+      ],
+      "dependencies": [
+        "agno.utils.pprint",
+        "agno.workflow",
+        "BaseModel",
+        "agno.utils.log",
+        "pydantic",
+        "agno.models.openai",
+        "OpenAIChat",
+        "Agent",
+        "pprint_run_response",
+        "json",
+        "Iterator",
+        "agno.storage.sqlite",
+        "logger",
+        "Prompt",
+        "agno.tools.googlesearch"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "cookbook/workflows/workflows_playground.py",
+      "filename": "workflows_playground.py",
+      "language": "Python",
+      "description": "Import the workflows",
+      "domain": "messaging",
+      "loc": 62,
+      "classes": [],
+      "functions": [],
+      "dependencies": [
+        "BlogPostGenerator",
+        "Playground",
+        "agno.playground",
+        "PersonalisedEmailGenerator",
+        "investment_report_generator",
+        "personalized_email_generator",
+        "agno.storage.sqlite",
+        "SqliteStorage",
+        "blog_post_generator",
+        "StartupIdeaValidator",
+        "startup_idea_validator"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/memory/workflow.py",
+      "filename": "workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in workflow.py",
+      "domain": "networking",
+      "loc": 39,
+      "classes": [
+        "WorkflowMemory",
+        "WorkflowRun"
+      ],
+      "functions": [
+        "to_dict",
+        "deep_copy",
+        "clear",
+        "add_run"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "typing",
+        "BaseModel",
+        "pydantic",
+        "agno.utils.log",
+        "Any",
+        "logger",
+        "RunResponse"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/storage/session/workflow.py",
+      "filename": "workflow.py",
+      "language": "Python",
+      "description": "Workflow Session that is stored in the database",
+      "domain": "workflow",
+      "loc": 62,
+      "classes": [
+        "from",
+        "class"
+      ],
+      "functions": [
+        "monitoring_data",
+        "to_dict",
+        "from_dict",
+        "telemetry_data"
+      ],
+      "dependencies": [
+        "typing",
+        "dataclasses",
+        "agno.utils.log",
+        "asdict",
+        "__future__",
+        "Any",
+        "logger",
+        "annotations"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/storage/workflow/__init__.py",
+      "filename": "__init__.py",
+      "language": "Python",
+      "description": "FSA implementation in __init__.py",
+      "domain": "workflow",
+      "loc": 1,
+      "classes": [],
+      "functions": [],
+      "dependencies": [],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/storage/workflow/mongodb.py",
+      "filename": "mongodb.py",
+      "language": "Python",
+      "description": "FSA implementation in mongodb.py",
+      "domain": "workflow",
+      "loc": 2,
+      "classes": [],
+      "functions": [],
+      "dependencies": [
+        "MongoDbStorage",
+        "agno.storage.mongodb"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/storage/workflow/postgres.py",
+      "filename": "postgres.py",
+      "language": "Python",
+      "description": "FSA implementation in postgres.py",
+      "domain": "workflow",
+      "loc": 2,
+      "classes": [],
+      "functions": [],
+      "dependencies": [
+        "PostgresStorage",
+        "agno.storage.postgres"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/storage/workflow/sqlite.py",
+      "filename": "sqlite.py",
+      "language": "Python",
+      "description": "FSA implementation in sqlite.py",
+      "domain": "workflow",
+      "loc": 2,
+      "classes": [],
+      "functions": [],
+      "dependencies": [
+        "agno.storage.sqlite",
+        "SqliteStorage"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/tools/linear.py",
+      "filename": "linear.py",
+      "language": "Python",
+      "description": "FSA implementation in linear.py",
+      "domain": "messaging",
+      "loc": 388,
+      "classes": [
+        "LinearTools"
+      ],
+      "functions": [
+        "get_workflow_issues",
+        "get_issue_details",
+        "get_user_details",
+        "create_issue",
+        "update_issue",
+        "get_user_assigned_issues",
+        "get_high_priority_issues",
+        "__init__",
+        "_execute_query"
+      ],
+      "dependencies": [
+        "agno.tools",
+        "typing",
+        "os",
+        "getenv",
+        "agno.utils.log",
+        "Toolkit",
+        "requests",
+        "logger",
+        "Optional"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "libs/agno/agno/workflow/__init__.py",
+      "filename": "__init__.py",
+      "language": "Python",
+      "description": "FSA implementation in __init__.py",
+      "domain": "networking",
+      "loc": 2,
+      "classes": [],
+      "functions": [],
+      "dependencies": [
+        "RunEvent",
+        "agno.workflow.workflow"
+      ],
+      "complexity": "low"
+    },
+    {
+      "filepath": "libs/agno/agno/workflow/workflow.py",
+      "filename": "workflow.py",
+      "language": "Python",
+      "description": "FSA implementation in workflow.py",
+      "domain": "networking",
+      "loc": 603,
+      "classes": [
+        "does",
+        "has",
+        "self",
+        "Workflow"
+      ],
+      "functions": [
+        "get_workflow_session",
+        "set_debug",
+        "log_workflow_session",
+        "deep_copy",
+        "__post_init__",
+        "initialize_memory",
+        "load_workflow_session",
+        "run",
+        "delete_session",
+        "write_to_storage",
+        "_deep_copy_field",
+        "set_workflow_id",
+        "set_session_id",
+        "run_workflow",
+        "get_session_data",
+        "provided",
+        "set_monitoring",
+        "update_run_method",
+        "rename",
+        "rename_session"
+      ],
+      "dependencies": [
+        "BaseModel",
+        "dataclasses",
+        "collections.abc",
+        "pydantic",
+        "agno.utils.log",
+        "AudioArtifact",
+        "agno.storage.session.workflow",
+        "merge_dictionaries",
+        "annotations",
+        "inspect",
+        "agno.utils.merge_dict",
+        "Storage",
+        "GeneratorType",
+        "os",
+        "getenv"
+      ],
+      "complexity": "high"
+    },
+    {
+      "filepath": "libs/agno/tests/integration/storage/test_json_storage_workflow.py",
+      "filename": "test_json_storage_workflow.py",
+      "language": "Python",
+      "description": "Create a temporary directory for storage that's cleaned up after tests.",
+      "domain": "networking",
+      "loc": 206,
+      "classes": [
+        "SimpleWorkflow"
+      ],
+      "functions": [
+        "workflow_with_storage",
+        "test_workflow_session_storage",
+        "test_workflow_rename",
+        "test_get_all_session_ids",
+        "run",
+        "test_session_retrieval_by_user",
+        "test_drop_storage",
+        "test_storage_creation",
+        "test_workflow_session_rename",
+        "test_session_deletion",
+        "workflow_storage",
+        "test_multiple_interactions",
+        "temp_storage_path"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.workflow",
+        "Workflow",
+        "pytest",
+        "JsonStorage",
+        "shutil",
+        "WorkflowSession",
+        "agno.storage.json",
+        "agno.storage.session.workflow",
+        "agno.agent",
+        "Agent",
+        "RunResponse"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "libs/agno/tests/integration/storage/test_sqlite_storage_workflow.py",
+      "filename": "test_sqlite_storage_workflow.py",
+      "language": "Python",
+      "description": "Create a temporary database file path.",
+      "domain": "networking",
+      "loc": 210,
+      "classes": [
+        "SimpleWorkflow"
+      ],
+      "functions": [
+        "workflow_with_storage",
+        "test_workflow_session_storage",
+        "test_workflow_rename",
+        "test_get_all_session_ids",
+        "run",
+        "test_session_retrieval_by_user",
+        "test_drop_storage",
+        "test_storage_creation",
+        "test_workflow_session_rename",
+        "test_session_deletion",
+        "workflow_storage",
+        "test_multiple_interactions",
+        "temp_db_path"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.workflow",
+        "Workflow",
+        "os",
+        "pytest",
+        "WorkflowSession",
+        "agno.storage.session.workflow",
+        "agno.storage.sqlite",
+        "SqliteStorage",
+        "agno.agent",
+        "Agent",
+        "RunResponse"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "filepath": "libs/agno/tests/integration/storage/test_yaml_storage_workflow.py",
+      "filename": "test_yaml_storage_workflow.py",
+      "language": "Python",
+      "description": "Create a temporary directory for storage that's cleaned up after tests.",
+      "domain": "networking",
+      "loc": 206,
+      "classes": [
+        "SimpleWorkflow"
+      ],
+      "functions": [
+        "workflow_with_storage",
+        "test_workflow_session_storage",
+        "test_workflow_rename",
+        "test_get_all_session_ids",
+        "run",
+        "test_session_retrieval_by_user",
+        "test_drop_storage",
+        "test_storage_creation",
+        "test_workflow_session_rename",
+        "test_session_deletion",
+        "workflow_storage",
+        "test_multiple_interactions",
+        "temp_storage_path"
+      ],
+      "dependencies": [
+        "agno.run.response",
+        "agno.workflow",
+        "Workflow",
+        "pytest",
+        "shutil",
+        "WorkflowSession",
+        "YamlStorage",
+        "agno.storage.session.workflow",
+        "agno.agent",
+        "agno.storage.yaml",
+        "Agent",
+        "RunResponse"
+      ],
+      "complexity": "medium"
+    }
+  ],
+  "relationships": {
+    "cookbook/workflows/workflows_playground.py": [
+      "cookbook/workflows/investment_report_generator.py",
+      "cookbook/workflows/personalized_email_generator.py",
+      "cookbook/workflows/blog_post_generator.py",
+      "cookbook/workflows/startup_idea_validator.py"
+    ]
+  }
+}
