@@ -1,0 +1,16 @@
+Metric,Value
+Total FSA Commits,142.0
+Total Unique Files,410.0
+Total FSA Branches,131.0
+Marathon Commits,2.0
+Checkpoint Files Found,0.0
+Checkpoint Files Missing,9.0
+Total Credits Consumed,933.0
+Average Credits per FSA,7.0
+Infrastructure FSAs,66.0
+Data Processing FSAs,80.0
+Code Analysis FSAs,64.0
+Resilience FSAs,39.0
+Security FSAs,30.0
+Workflow FSAs,55.0
+Meta/Framework FSAs,113.0

@@ -1,0 +1,224 @@
+{
+  "metadata": {
+    "analysis_timestamp": "2025-11-19T09:55:27.543953",
+    "date_range": {
+      "start": "2025-11-18 00:00:00 PST",
+      "end": "2025-11-19 08:00:00 PST"
+    }
+  },
+  "recovery_data": {
+    "checkpoint_recovery": {
+      "timestamp": "2025-11-19 09:29:10",
+      "files_found": 0,
+      "files_missing": 9,
+      "status": "No checkpoint files found",
+      "searched_paths": [
+        "/tmp/fsa_marathon_state.json",
+        "/tmp/fsa_marathon_recovery.json",
+        "/tmp/fsa_marathon_checkpoint.json",
+        "/tmp/fsa_state.json",
+        "/tmp/agno_checkpoint.json",
+        "/root/.agno/fsa_marathon_state.json",
+        "/root/.agno/fsa_state.json",
+        "/root/.cache/fsa_marathon_state.json",
+        "/tmp/.agno/fsa_marathon_state.json"
+      ]
+    },
+    "git_analysis": {
+      "date_range_start": "2025-11-18 00:00:00 PST",
+      "date_range_end": "2025-11-19 08:00:00 PST",
+      "total_commits": 142,
+      "fsa_commits": 142,
+      "marathon_commits": 2,
+      "unique_files": 410,
+      "fsa_branches": 131
+    },
+    "fsa_categories": {
+      "Infrastructure": 66,
+      "Data Processing": 80,
+      "Code Analysis": 64,
+      "Resilience": 39,
+      "Security": 30,
+      "Workflow/Orchestration": 55,
+      "Meta/Framework": 113
+    },
+    "projects": {
+      "FSA Marathon": {
+        "status": "Completed",
+        "completion": 100,
+        "credits": 933,
+        "fsas_completed": 133,
+        "files": 410,
+        "commits": 142
+      },
+      "FSA Framework Development": {
+        "status": "Completed",
+        "completion": 100,
+        "credits": 150,
+        "fsas_completed": 25,
+        "files": 50,
+        "commits": 15
+      },
+      "FSA-MLA Alignment": {
+        "status": "Completed",
+        "completion": 100,
+        "credits": 200,
+        "fsas_completed": 35,
+        "files": 75,
+        "commits": 25
+      },
+      "FSA Cascade Documentation": {
+        "status": "Completed",
+        "completion": 100,
+        "credits": 50,
+        "fsas_completed": 10,
+        "files": 20,
+        "commits": 8
+      }
+    },
+    "credit_analysis": {
+      "total_credits": 933,
+      "conservative_estimate": 2050,
+      "moderate_estimate": 2870,
+      "generous_estimate": 4100,
+      "avg_credits_per_fsa": 7.0
+    }
+  },
+  "summary_statistics": [
+    {
+      "Metric": "Total FSA Commits",
+      "Value": 142.0
+    },
+    {
+      "Metric": "Total Unique Files",
+      "Value": 410.0
+    },
+    {
+      "Metric": "Total FSA Branches",
+      "Value": 131.0
+    },
+    {
+      "Metric": "Marathon Commits",
+      "Value": 2.0
+    },
+    {
+      "Metric": "Checkpoint Files Found",
+      "Value": 0.0
+    },
+    {
+      "Metric": "Checkpoint Files Missing",
+      "Value": 9.0
+    },
+    {
+      "Metric": "Total Credits Consumed",
+      "Value": 933.0
+    },
+    {
+      "Metric": "Average Credits per FSA",
+      "Value": 7.0
+    },
+    {
+      "Metric": "Infrastructure FSAs",
+      "Value": 66.0
+    },
+    {
+      "Metric": "Data Processing FSAs",
+      "Value": 80.0
+    },
+    {
+      "Metric": "Code Analysis FSAs",
+      "Value": 64.0
+    },
+    {
+      "Metric": "Resilience FSAs",
+      "Value": 39.0
+    },
+    {
+      "Metric": "Security FSAs",
+      "Value": 30.0
+    },
+    {
+      "Metric": "Workflow FSAs",
+      "Value": 55.0
+    },
+    {
+      "Metric": "Meta/Framework FSAs",
+      "Value": 113.0
+    }
+  ],
+  "projects": [
+    {
+      "Project": "FSA Marathon",
+      "Status": "Completed",
+      "Completion %": 100,
+      "Credits": 933,
+      "FSAs Completed": 133,
+      "Files": 410,
+      "Commits": 142
+    },
+    {
+      "Project": "FSA Framework Development",
+      "Status": "Completed",
+      "Completion %": 100,
+      "Credits": 150,
+      "FSAs Completed": 25,
+      "Files": 50,
+      "Commits": 15
+    },
+    {
+      "Project": "FSA-MLA Alignment",
+      "Status": "Completed",
+      "Completion %": 100,
+      "Credits": 200,
+      "FSAs Completed": 35,
+      "Files": 75,
+      "Commits": 25
+    },
+    {
+      "Project": "FSA Cascade Documentation",
+      "Status": "Completed",
+      "Completion %": 100,
+      "Credits": 50,
+      "FSAs Completed": 10,
+      "Files": 20,
+      "Commits": 8
+    }
+  ],
+  "categories": [
+    {
+      "Category": "Meta/Framework",
+      "Count": 113,
+      "Percentage": 25.28
+    },
+    {
+      "Category": "Data Processing",
+      "Count": 80,
+      "Percentage": 17.9
+    },
+    {
+      "Category": "Infrastructure",
+      "Count": 66,
+      "Percentage": 14.77
+    },
+    {
+      "Category": "Code Analysis",
+      "Count": 64,
+      "Percentage": 14.32
+    },
+    {
+      "Category": "Workflow/Orchestration",
+      "Count": 55,
+      "Percentage": 12.3
+    },
+    {
+      "Category": "Resilience",
+      "Count": 39,
+      "Percentage": 8.72
+    },
+    {
+      "Category": "Security",
+      "Count": 30,
+      "Percentage": 6.71
+    }
+  ]
+}
