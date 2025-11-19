@@ -73,6 +73,7 @@ browserbase = ["browserbase", "playwright"]
 sql = ["sqlalchemy"]
 postgres = ["psycopg-binary", "psycopg"]
 sqlite = ["sqlalchemy"]
+redis = ["redis>=4.0.0"]
 
 # Dependencies for Vector databases
 pgvector = ["pgvector"]
@@ -136,6 +137,7 @@ storage = [
   "agno[sql]",
   "agno[postgres]",
   "agno[sqlite]",
+  "agno[redis]",
 ]
 
 # All vector databases
