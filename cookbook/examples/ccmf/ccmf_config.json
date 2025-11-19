@@ -1,0 +1,300 @@
+{
+  "_comment": "CCMF Configuration File - Constitutional Cognitive Meta-Framework",
+  "_version": "1.0.0",
+
+  "paths": {
+    "checkpoints_dir": ".ccmf_checkpoints",
+    "logs_dir": ".ccmf_logs",
+    "knowledge_base": ".ccmf_knowledge/knowledge_base.json",
+    "repositories": {
+      "default": ".",
+      "allowed_paths": [
+        ".",
+        "../",
+        "../../"
+      ]
+    }
+  },
+
+  "constitutional_protocols": {
+    "mla": {
+      "enabled": true,
+      "description": "Meta-Learning Architecture",
+      "leverage_quotient_threshold": 0.7,
+      "learning_window": 100,
+      "min_examples_for_learning": 10
+    },
+    "asaep": {
+      "enabled": true,
+      "description": "Adaptive Safety and Ethics Protocol",
+      "compliance_threshold": 0.75,
+      "mandatory_principles": [
+        "safety_001",
+        "transparency_001",
+        "robustness_001",
+        "privacy_001",
+        "ethics_001"
+      ],
+      "auto_validate": true
+    },
+    "ai_hpp": {
+      "enabled": true,
+      "description": "AI Human Partnership Protocol",
+      "require_human_approval_for": [
+        "system_modification",
+        "data_deletion",
+        "security_changes"
+      ],
+      "transparency_level": "high"
+    },
+    "ofap": {
+      "enabled": true,
+      "description": "Operational Flexibility and Adaptation Protocol",
+      "adaptation_threshold": 0.3,
+      "auto_adaptation_enabled": true,
+      "fallback_strategies": [
+        "retry_with_backoff",
+        "use_alternative_pattern",
+        "reduce_scope",
+        "request_assistance"
+      ]
+    },
+    "tfcp": {
+      "enabled": true,
+      "description": "Task-Focused Completion Protocol",
+      "max_retries": 3,
+      "retry_delay_seconds": 2,
+      "timeout_seconds": 300,
+      "checkpoint_frequency": "per_major_step"
+    }
+  },
+
+  "rsi_loop": {
+    "enabled": true,
+    "feedback_collection": {
+      "auto_collect": true,
+      "collect_on_success": true,
+      "collect_on_failure": true,
+      "include_performance_metrics": true,
+      "include_context": true
+    },
+    "learning": {
+      "learning_rate": 0.1,
+      "discount_factor": 0.95,
+      "exploration_rate": 0.15
+    },
+    "adaptation": {
+      "adaptation_threshold": 0.3,
+      "min_feedback_for_adaptation": 10,
+      "feedback_window": 100,
+      "adaptation_strategies": {
+        "optimize_parameters": {
+          "enabled": true,
+          "confidence_threshold": 0.6
+        },
+        "change_pattern": {
+          "enabled": true,
+          "confidence_threshold": 0.7
+        },
+        "add_fallback": {
+          "enabled": true,
+          "confidence_threshold": 0.5
+        },
+        "increase_resources": {
+          "enabled": true,
+          "confidence_threshold": 0.8
+        }
+      }
+    },
+    "health_monitoring": {
+      "enabled": true,
+      "health_check_interval_seconds": 60,
+      "critical_health_threshold": 0.5,
+      "warning_health_threshold": 0.7
+    }
+  },
+
+  "workflow_engine": {
+    "max_concurrent_steps": 5,
+    "default_retry_count": 3,
+    "default_timeout_seconds": 300,
+    "enable_constitutional_validation": true,
+    "enable_rsi_integration": true,
+    "checkpoint_on_step_completion": true,
+    "continue_on_non_critical_failure": false,
+    "execution_logging": {
+      "log_level": "INFO",
+      "log_step_start": true,
+      "log_step_completion": true,
+      "log_step_failure": true,
+      "include_execution_time": true,
+      "include_resource_usage": true
+    }
+  },
+
+  "meta_learning": {
+    "enabled": true,
+    "knowledge_persistence": {
+      "enabled": true,
+      "auto_save": true,
+      "save_interval_seconds": 300,
+      "max_examples_in_memory": 1000
+    },
+    "pattern_learning": {
+      "track_pattern_performance": true,
+      "learn_optimal_contexts": true,
+      "max_best_contexts": 10,
+      "max_failure_contexts": 10
+    },
+    "recommendation_engine": {
+      "enabled": true,
+      "min_confidence_for_recommendation": 0.6,
+      "context_similarity_weight": 0.3,
+      "success_rate_weight": 0.4,
+      "efficiency_weight": 0.3
+    },
+    "transfer_learning": {
+      "enabled": true,
+      "cross_pattern_learning": true,
+      "knowledge_transfer_threshold": 0.5
+    }
+  },
+
+  "patterns": {
+    "DirectPathAccessPattern": {
+      "default_encoding": "utf-8",
+      "max_file_size_mb": 100,
+      "enable_caching": false,
+      "timeout_seconds": 30
+    },
+    "KnownPathSearchPattern": {
+      "default_recursive": true,
+      "max_results": 1000,
+      "exclude_patterns": [
+        "*.pyc",
+        "__pycache__",
+        ".git",
+        "node_modules",
+        ".venv",
+        "venv"
+      ],
+      "timeout_seconds": 60
+    },
+    "GitRepositoryFilePattern": {
+      "default_log_limit": 10,
+      "enable_status_cache": false,
+      "cache_ttl_seconds": 60,
+      "timeout_seconds": 30
+    },
+    "CheckpointRecoveryPattern": {
+      "default_checkpoint_dir": ".ccmf_checkpoints",
+      "max_checkpoints": 50,
+      "auto_cleanup": true,
+      "compression_enabled": false
+    },
+    "GitStateAnalysisPattern": {
+      "include_remotes": true,
+      "include_commit_stats": true,
+      "timeout_seconds": 30
+    },
+    "CompositeStateRecoveryPattern": {
+      "default_sources": [
+        "checkpoint",
+        "git",
+        "filesystem"
+      ],
+      "parallel_recovery": true,
+      "fail_fast": false
+    }
+  },
+
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "date_format": "%Y-%m-%d %H:%M:%S",
+    "handlers": {
+      "console": {
+        "enabled": true,
+        "level": "INFO",
+        "stream": "stdout"
+      },
+      "file": {
+        "enabled": true,
+        "level": "DEBUG",
+        "filename": ".ccmf_logs/ccmf.log",
+        "max_bytes": 10485760,
+        "backup_count": 5,
+        "encoding": "utf-8"
+      },
+      "rotating_file": {
+        "enabled": false,
+        "level": "DEBUG",
+        "filename": ".ccmf_logs/ccmf_rotating.log",
+        "when": "midnight",
+        "interval": 1,
+        "backup_count": 30
+      }
+    }
+  },
+
+  "performance_metrics": {
+    "enabled": true,
+    "track_execution_time": true,
+    "track_resource_usage": true,
+    "track_success_rate": true,
+    "track_quality_score": true,
+    "metrics_aggregation": {
+      "enabled": true,
+      "window_size": 100,
+      "compute_statistics": true,
+      "export_enabled": false,
+      "export_format": "json",
+      "export_path": ".ccmf_logs/metrics.json"
+    },
+    "alerts": {
+      "enabled": true,
+      "performance_degradation_threshold": 0.3,
+      "high_error_rate_threshold": 0.2,
+      "slow_execution_threshold_seconds": 10.0
+    }
+  },
+
+  "security": {
+    "validate_file_paths": true,
+    "restrict_to_allowed_paths": true,
+    "max_path_depth": 10,
+    "block_system_paths": true,
+    "system_paths_to_block": [
+      "/etc",
+      "/sys",
+      "/proc",
+      "C:\\Windows\\System32",
+      "C:\\Windows\\SysWOW64"
+    ],
+    "sanitize_inputs": true,
+    "audit_all_operations": true
+  },
+
+  "cli": {
+    "default_subcommand": "run-pattern",
+    "color_output": true,
+    "verbose": false,
+    "quiet": false,
+    "progress_bar": true,
+    "interactive_mode": false
+  },
+
+  "development": {
+    "debug_mode": false,
+    "profiling_enabled": false,
+    "test_mode": false,
+    "mock_external_calls": false
+  },
+
+  "experimental_features": {
+    "parallel_pattern_execution": false,
+    "predictive_caching": false,
+    "auto_pattern_selection": false,
+    "distributed_execution": false
+  }
+}
