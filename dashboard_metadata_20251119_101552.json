@@ -1,0 +1,30 @@
+{
+  "created": "2025-11-19T10:15:52.433200",
+  "dashboard_file": "fsa_recovery_dashboard_20251119_101552.html",
+  "data_file": "fsa_recovery_data_20251119_101552.json",
+  "components": [
+    "Executive Summary",
+    "Project Status Grid (4 projects)",
+    "FSA Marathon Metrics Panel",
+    "Recovery Success Indicators",
+    "Next Actions Priority Matrix"
+  ],
+  "color_scheme": {
+    "success": "#22c55e",
+    "operational": "#3b82f6",
+    "warning": "#eab308",
+    "error": "#ef4444",
+    "deferred": "#6b7280",
+    "dark_bg": "#1e293b",
+    "card_bg": "#334155",
+    "text": "#f1f5f9",
+    "text_muted": "#94a3b8"
+  },
+  "features": [
+    "Interactive hover tooltips",
+    "Responsive layout",
+    "Dark theme",
+    "Multi-format export",
+    "Real-time visualization"
+  ]
+}
