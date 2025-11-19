@@ -1,0 +1,135 @@
+{
+  "version": "1.0",
+  "framework_name": "Claude Code Mastery Framework (CCMF)",
+  "description": "Meta-level RSI framework FOR Fellou agents BY Fellou agents",
+
+  "repository_path": "/home/user/agno",
+
+  "checkpoint_paths": [
+    "/home/user/agno/checkpoint.json",
+    "/home/user/agno/.ccmf/state.json",
+    "/home/user/agno/.ccmf/checkpoint.json",
+    "./checkpoint.json",
+    "./state.json",
+    "./.ccmf/checkpoint.json"
+  ],
+
+  "mla_config": {
+    "threshold": 5.0,
+    "weight_progress": 0.6,
+    "weight_efficiency": 0.4,
+    "min_acceptable_lq": 2.0,
+    "description": "MLA v3.0 Leverage Quotient configuration"
+  },
+
+  "pattern_settings": {
+    "direct_path_access": {
+      "timeout_test_seconds": 10,
+      "timeout_read_seconds": 30,
+      "default_operation": "test"
+    },
+    "known_path_search": {
+      "timeout_per_test_seconds": 10,
+      "timeout_read_seconds": 30,
+      "max_search_attempts": 10,
+      "base_lq": 7.0,
+      "penalty_per_attempt": 0.5,
+      "minimum_lq": 2.0
+    },
+    "git_repository": {
+      "timeout_list_seconds": 15,
+      "timeout_read_seconds": 30,
+      "timeout_log_seconds": 20,
+      "default_branch": "main",
+      "expected_lq": 9.0
+    },
+    "checkpoint_recovery": {
+      "timeout_test_seconds": 10,
+      "timeout_read_seconds": 30,
+      "validate_json": true,
+      "expected_lq": 7.5
+    },
+    "git_state_analysis": {
+      "timeout_status_seconds": 10,
+      "timeout_log_seconds": 15,
+      "timeout_diff_seconds": 20,
+      "timeout_branch_seconds": 5,
+      "default_analysis_depth": 10,
+      "expected_lq": 8.5
+    },
+    "composite_state_recovery": {
+      "enable_checkpoint_recovery": true,
+      "enable_git_analysis": true,
+      "enable_fallback_search": true,
+      "confidence_checkpoint_only": 0.90,
+      "confidence_checkpoint_git": 0.95,
+      "confidence_git_only": 0.70,
+      "confidence_fallback_only": 0.40
+    }
+  },
+
+  "rsi_config": {
+    "enable_logging": true,
+    "log_directory": ".ccmf",
+    "log_file": "execution_log.json",
+    "enable_optimization": true,
+    "optimization_threshold": 0.70,
+    "performance_window": 100,
+    "min_executions_for_analysis": 5,
+    "bottleneck_severity_threshold": 5.0,
+    "improvement_cycle_interval": 10
+  },
+
+  "constitutional_protocols": [
+    "MLA v3.0",
+    "ASAEP",
+    "AI-HPP",
+    "OFAP",
+    "TFCP"
+  ],
+
+  "protocol_descriptions": {
+    "MLA": "Multi-Layer Architecture v3.0 - Leverage Quotient optimization",
+    "ASAEP": "Agno Subprocess Action Enforcement Protocol",
+    "AI-HPP": "AI-Human Partnership Protocol",
+    "OFAP": "Operational File Access Protocol",
+    "TFCP": "Tool Function Constraint Protocol"
+  },
+
+  "forbidden_operations": [
+    "read_list",
+    "file_list",
+    "file_find_by_name"
+  ],
+
+  "allowed_methods": [
+    "powershell_subprocess",
+    "git_command",
+    "direct_path_access"
+  ],
+
+  "security": {
+    "validate_all_operations": true,
+    "block_forbidden_methods": true,
+    "require_constitutional_validation": true,
+    "track_violations": true,
+    "max_violations_before_abort": 10
+  },
+
+  "output": {
+    "verbose": false,
+    "debug_mode": false,
+    "json_output": false,
+    "log_level": "INFO",
+    "show_lq_scores": true,
+    "show_violation_reports": true
+  },
+
+  "performance": {
+    "enable_performance_tracking": true,
+    "track_execution_duration": true,
+    "track_success_rate": true,
+    "track_lq_scores": true,
+    "generate_performance_reports": true
+  }
+}
