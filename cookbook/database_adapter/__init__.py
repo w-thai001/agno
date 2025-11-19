@@ -1,0 +1,1 @@
+"""Database Adapter FSA Examples."""
