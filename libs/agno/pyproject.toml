@@ -68,6 +68,7 @@ fal = ["fal_client"]
 webex = ["webexpythonsdk"]
 mcp = ["mcp"]
 browserbase = ["browserbase", "playwright"]
+jwt = ["pyjwt[crypto]"]
 
 # Dependencies for Storage
 sql = ["sqlalchemy"]
@@ -129,6 +130,7 @@ tools = [
   "agno[mcp]",
   "agno[browserbase]",
   "agno[yfinance]",
+  "agno[jwt]",
 ]
 
 # All storage
@@ -250,6 +252,7 @@ module = [
   "ibm_watsonx_ai.*",
   "imghdr.*",
   "jira.*",
+  "jwt.*",
   "kubernetes.*",
   "lancedb.*",
   "langchain_core.*",
