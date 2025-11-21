@@ -64,3 +64,6 @@ token.json
 # Coverage
 coverage_report
 .coverage
+
+# FSA test output files
+fsa*_ontology_export.*
