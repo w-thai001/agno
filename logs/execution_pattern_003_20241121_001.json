@@ -1,0 +1,11 @@
+{
+  "pattern_id": "pattern_003",
+  "lq_score": 0.75,
+  "success": true,
+  "execution_time": 1.89,
+  "timestamp": "2024-11-21T10:30:20Z",
+  "metadata": {
+    "model": "claude-3",
+    "task_type": "analysis"
+  }
+}

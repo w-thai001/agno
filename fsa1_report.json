@@ -1,0 +1,117 @@
+{
+  "status": "completed",
+  "timestamp": "2025-11-21T11:51:59.912392",
+  "analysis_duration_seconds": 0.08,
+  "logs_analyzed": 6,
+  "patterns_found": 3,
+  "statistics": {
+    "pattern_001": {
+      "pattern_id": "pattern_001",
+      "execution_count": 3,
+      "mean_lq_score": 0.9167,
+      "max_lq_score": 0.95,
+      "min_lq_score": 0.88,
+      "std_dev_lq_score": 0.0351,
+      "success_rate": 100.0,
+      "total_successes": 3,
+      "total_failures": 0,
+      "avg_execution_time": 1.45
+    },
+    "pattern_003": {
+      "pattern_id": "pattern_003",
+      "execution_count": 2,
+      "mean_lq_score": 0.785,
+      "max_lq_score": 0.82,
+      "min_lq_score": 0.75,
+      "std_dev_lq_score": 0.0495,
+      "success_rate": 100.0,
+      "total_successes": 2,
+      "total_failures": 0,
+      "avg_execution_time": 1.92
+    },
+    "pattern_002": {
+      "pattern_id": "pattern_002",
+      "execution_count": 1,
+      "mean_lq_score": 0.45,
+      "max_lq_score": 0.45,
+      "min_lq_score": 0.45,
+      "std_dev_lq_score": 0.0,
+      "success_rate": 0.0,
+      "total_successes": 0,
+      "total_failures": 1,
+      "avg_execution_time": 2.31
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "pattern_id": "pattern_001",
+      "recommendation_type": "PROMOTE",
+      "description": "Pattern 'pattern_001' shows excellent performance with mean LQ score of 0.9167 and 100.00% success rate. Consider using this pattern as a template for similar use cases.",
+      "expected_impact": "High - Can improve overall system quality by 15-25%",
+      "metrics": {
+        "rank": 1,
+        "mean_lq_score": 0.9167,
+        "success_rate": 100.0,
+        "execution_count": 3,
+        "consistency": 0.9617104832551544
+      }
+    },
+    {
+      "priority": "HIGH",
+      "pattern_id": "pattern_003",
+      "recommendation_type": "PROMOTE",
+      "description": "Pattern 'pattern_003' shows excellent performance with mean LQ score of 0.7850 and 100.00% success rate. Consider using this pattern as a template for similar use cases.",
+      "expected_impact": "High - Can improve overall system quality by 15-25%",
+      "metrics": {
+        "rank": 2,
+        "mean_lq_score": 0.785,
+        "success_rate": 100.0,
+        "execution_count": 2,
+        "consistency": 0.9369426751592357
+      }
+    },
+    {
+      "priority": "MEDIUM",
+      "pattern_id": "pattern_002",
+      "recommendation_type": "INVESTIGATE",
+      "description": "Pattern 'pattern_002' shows below-average performance with mean LQ score of 0.4500. Review and refactor this pattern or consider deprecation.",
+      "expected_impact": "Medium - Can prevent quality degradation",
+      "metrics": {
+        "mean_lq_score": 0.45,
+        "success_rate": 0.0,
+        "execution_count": 1
+      }
+    },
+    {
+      "priority": "LOW",
+      "pattern_id": "pattern_001",
+      "recommendation_type": "SCALE",
+      "description": "Pattern 'pattern_001' shows high success rate (100.00%) but limited usage (3 executions). Consider expanding its application to similar scenarios.",
+      "expected_impact": "Low-Medium - Potential for broader application",
+      "metrics": {
+        "mean_lq_score": 0.9167,
+        "success_rate": 100.0,
+        "execution_count": 3
+      }
+    },
+    {
+      "priority": "LOW",
+      "pattern_id": "pattern_003",
+      "recommendation_type": "SCALE",
+      "description": "Pattern 'pattern_003' shows high success rate (100.00%) but limited usage (2 executions). Consider expanding its application to similar scenarios.",
+      "expected_impact": "Low-Medium - Potential for broader application",
+      "metrics": {
+        "mean_lq_score": 0.785,
+        "success_rate": 100.0,
+        "execution_count": 2
+      }
+    }
+  ],
+  "summary": {
+    "top_pattern": "pattern_001",
+    "average_success_rate": 66.67,
+    "total_executions": 6,
+    "high_priority_recommendations": 2
+  }
+}

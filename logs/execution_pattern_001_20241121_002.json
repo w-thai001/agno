@@ -1,0 +1,11 @@
+{
+  "pattern_id": "pattern_001",
+  "lq_score": 0.88,
+  "success": true,
+  "execution_time": 1.52,
+  "timestamp": "2024-11-21T10:20:15Z",
+  "metadata": {
+    "model": "gpt-4",
+    "task_type": "classification"
+  }
+}
