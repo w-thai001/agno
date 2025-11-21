@@ -64,3 +64,8 @@ token.json
 # Coverage
 coverage_report
 .coverage
+
+# Curriculum sequencer runtime directories
+curriculum_data/
+curriculum_exports/
+curriculum_logs/
