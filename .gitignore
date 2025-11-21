@@ -64,3 +64,8 @@ token.json
 # Coverage
 coverage_report
 .coverage
+
+# FSA-10 Test Generator artifacts
+fsa10_test_generator.log
+generated_tests/
+sample_calculator.py
