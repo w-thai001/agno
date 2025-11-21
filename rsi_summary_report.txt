@@ -1,0 +1,129 @@
+================================================================================
+RSI DATA AGGREGATION SUMMARY REPORT
+================================================================================
+Generated: 2025-11-21T12:16:39.893179
+Time Period: last_20_hours
+Total Records: 60
+Data Sources: execution_logs, performance_metrics, quality_metrics
+
+--------------------------------------------------------------------------------
+STATISTICAL SUMMARIES
+--------------------------------------------------------------------------------
+
+EXECUTION DURATION:
+  Mean: 11.85
+  Median: 11.85
+  Std Dev: 3.75
+  Min: 5.00
+  Max: 18.70
+  Count: 20
+
+SUCCESS RATE:
+  Rate: 75.00%
+  Total: 20
+  Successful: 15
+  Failed: 5
+
+CPU USAGE:
+  Mean: 67.50
+  Median: 67.50
+  Std Dev: 14.73
+  Min: 45.00
+  Max: 90.00
+  Count: 20
+
+MEMORY USAGE:
+  Mean: 1499.00
+  Median: 1499.00
+  Std Dev: 295.80
+  Min: 1024.00
+  Max: 1974.00
+  Count: 20
+
+PERFORMANCE EXECUTION TIME:
+  Mean: 7.85
+  Median: 7.85
+  Std Dev: 1.77
+  Min: 5.00
+  Max: 10.70
+  Count: 20
+
+LQ SCORE:
+  Mean: 85.45
+  Median: 85.50
+  Std Dev: 5.47
+  Min: 75.00
+  Max: 94.50
+  Count: 20
+
+F1 SCORE:
+  Mean: 0.88
+  Median: 0.88
+  Std Dev: 0.03
+  Min: 0.83
+  Max: 0.92
+  Count: 20
+
+--------------------------------------------------------------------------------
+TREND ANALYSES
+--------------------------------------------------------------------------------
+
+EXECUTION DURATION:
+  Direction: INCREASING
+  Strength: 0.44
+  Change: +274.00%
+  Start Value: 5.00
+  End Value: 18.70
+  Data Points: 20
+
+LQ SCORE:
+  Direction: INCREASING
+  Strength: 0.51
+  Change: +26.00%
+  Start Value: 75.00
+  End Value: 94.50
+  Data Points: 20
+
+--------------------------------------------------------------------------------
+CORRELATION ANALYSES
+--------------------------------------------------------------------------------
+
+cpu_usage vs execution_time:
+  Coefficient: 0.473
+  Strength: MODERATE
+  Sample Size: 20
+
+lq_score vs execution_duration:
+  Coefficient: 0.465
+  Strength: MODERATE
+  Sample Size: 20
+
+--------------------------------------------------------------------------------
+DATA QUALITY REPORTS
+--------------------------------------------------------------------------------
+
+EXECUTION LOGS:
+  Quality Level: EXCELLENT
+  Quality Score: 100.00/100
+  Completeness: 100.00%
+  Accuracy: 100.00%
+  Consistency: 100.00%
+  Timeliness: 100.00%
+
+PERFORMANCE METRICS:
+  Quality Level: EXCELLENT
+  Quality Score: 100.00/100
+  Completeness: 100.00%
+  Accuracy: 100.00%
+  Consistency: 100.00%
+  Timeliness: 100.00%
+
+QUALITY METRICS:
+  Quality Level: EXCELLENT
+  Quality Score: 100.00/100
+  Completeness: 100.00%
+  Accuracy: 100.00%
+  Consistency: 100.00%
+  Timeliness: 100.00%
+
+================================================================================

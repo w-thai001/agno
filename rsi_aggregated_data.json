@@ -1,0 +1,186 @@
+{
+  "timestamp": "2025-11-21T12:16:39.893179",
+  "time_period": "last_20_hours",
+  "data_sources": [
+    "execution_logs",
+    "performance_metrics",
+    "quality_metrics"
+  ],
+  "total_records": 60,
+  "statistical_summaries": {
+    "execution_duration": {
+      "mean": 11.85,
+      "median": 11.850000000000001,
+      "std_dev": 3.7546462444620037,
+      "min_value": 5.0,
+      "max_value": 18.7,
+      "count": 20,
+      "sum_value": 237.0,
+      "percentile_25": 9.325,
+      "percentile_75": 14.374999999999998,
+      "percentile_95": 17.275,
+      "percentile_99": 18.415,
+      "variance": 14.097368421052629
+    },
+    "success_rate": {
+      "value": 75.0,
+      "total": 20,
+      "successful": 15,
+      "failed": 5
+    },
+    "cpu_usage": {
+      "mean": 67.5,
+      "median": 67.5,
+      "std_dev": 14.734492293862546,
+      "min_value": 45.0,
+      "max_value": 90.0,
+      "count": 20,
+      "sum_value": 1350.0,
+      "percentile_25": 55.0,
+      "percentile_75": 80.0,
+      "percentile_95": 90.0,
+      "percentile_99": 90.0,
+      "variance": 217.10526315789474
+    },
+    "memory_usage": {
+      "mean": 1499.0,
+      "median": 1499.0,
+      "std_dev": 295.8039891549808,
+      "min_value": 1024.0,
+      "max_value": 1974.0,
+      "count": 20,
+      "sum_value": 29980.0,
+      "percentile_25": 1261.5,
+      "percentile_75": 1736.5,
+      "percentile_95": 1926.5,
+      "percentile_99": 1964.5,
+      "variance": 87500.0
+    },
+    "performance_execution_time": {
+      "mean": 7.85,
+      "median": 7.85,
+      "std_dev": 1.7748239349298847,
+      "min_value": 5.0,
+      "max_value": 10.7,
+      "count": 20,
+      "sum_value": 157.0,
+      "percentile_25": 6.425,
+      "percentile_75": 9.274999999999999,
+      "percentile_95": 10.415,
+      "percentile_99": 10.642999999999999,
+      "variance": 3.1499999999999995
+    },
+    "lq_score": {
+      "mean": 85.45,
+      "median": 85.5,
+      "std_dev": 5.474582416182895,
+      "min_value": 75.0,
+      "max_value": 94.5,
+      "count": 20,
+      "sum_value": 1709.0,
+      "percentile_25": 81.75,
+      "percentile_75": 89.625,
+      "percentile_95": 93.55,
+      "percentile_99": 94.31,
+      "variance": 29.971052631578946
+    },
+    "f1_score": {
+      "mean": 0.875,
+      "median": 0.875,
+      "std_dev": 0.02946898458772507,
+      "min_value": 0.83,
+      "max_value": 0.9199999999999999,
+      "count": 20,
+      "sum_value": 17.5,
+      "percentile_25": 0.85,
+      "percentile_75": 0.8999999999999999,
+      "percentile_95": 0.9199999999999999,
+      "percentile_99": 0.9199999999999999,
+      "variance": 0.0008684210526315777
+    }
+  },
+  "trend_analyses": [
+    {
+      "metric_name": "execution_duration",
+      "time_period": "last_20_hours",
+      "trend_direction": "increasing",
+      "trend_strength": 0.4385815200686053,
+      "slope": 0.42030075187969923,
+      "correlation": 0.4385815200686053,
+      "data_points": 20,
+      "start_value": 5.0,
+      "end_value": 18.7,
+      "change_percentage": 274.0
+    },
+    {
+      "metric_name": "lq_score",
+      "time_period": "last_20_hours",
+      "trend_direction": "increasing",
+      "trend_strength": 0.5054507812247274,
+      "slope": 0.6578947368421053,
+      "correlation": 0.5054507812247274,
+      "data_points": 20,
+      "start_value": 75.0,
+      "end_value": 94.5,
+      "change_percentage": 26.0
+    }
+  ],
+  "correlations": [
+    {
+      "metric_x": "cpu_usage",
+      "metric_y": "execution_time",
+      "correlation_coefficient": 0.47321091643005375,
+      "correlation_strength": "moderate",
+      "p_value": null,
+      "sample_size": 20
+    },
+    {
+      "metric_x": "lq_score",
+      "metric_y": "execution_duration",
+      "correlation_coefficient": 0.46521255318806604,
+      "correlation_strength": "moderate",
+      "p_value": null,
+      "sample_size": 20
+    }
+  ],
+  "outliers": [],
+  "quality_reports": [
+    {
+      "source_type": "execution_logs",
+      "quality_score": 100.0,
+      "quality_level": "excellent",
+      "completeness": 100.0,
+      "accuracy": 100.0,
+      "consistency": 100.0,
+      "timeliness": 100.0,
+      "issues": [],
+      "recommendations": []
+    },
+    {
+      "source_type": "performance_metrics",
+      "quality_score": 100.0,
+      "quality_level": "excellent",
+      "completeness": 100.0,
+      "accuracy": 100.0,
+      "consistency": 100.0,
+      "timeliness": 100.0,
+      "issues": [],
+      "recommendations": []
+    },
+    {
+      "source_type": "quality_metrics",
+      "quality_score": 100.0,
+      "quality_level": "excellent",
+      "completeness": 100.0,
+      "accuracy": 100.0,
+      "consistency": 100.0,
+      "timeliness": 100.0,
+      "issues": [],
+      "recommendations": []
+    }
+  ],
+  "metadata": {
+    "aggregator_version": "1.0.0",
+    "generated_at": "2025-11-21T12:16:39.893179"
+  }
+}
