@@ -1,0 +1,566 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "fsa-integration-layer-production-config",
+  "$comment": "Production Configuration for FSA Integration Layer v2.0.0",
+
+  "metadata": {
+    "config_version": "2.0.0",
+    "environment": "production",
+    "last_updated": "2024-01-01T00:00:00Z",
+    "description": "Production-optimized configuration for FSA Integration Layer"
+  },
+
+  "parallel_executor": {
+    "enabled": true,
+    "max_concurrency": 50,
+    "task_queue_size": 5000,
+    "semaphore_timeout": 30.0,
+    "default_task_timeout": 120.0,
+    "priority_levels": {
+      "critical": {
+        "max_concurrent": 20,
+        "timeout_multiplier": 0.5,
+        "retry_priority": true
+      },
+      "high": {
+        "max_concurrent": 15,
+        "timeout_multiplier": 0.75,
+        "retry_priority": true
+      },
+      "normal": {
+        "max_concurrent": 10,
+        "timeout_multiplier": 1.0,
+        "retry_priority": false
+      },
+      "low": {
+        "max_concurrent": 5,
+        "timeout_multiplier": 1.5,
+        "retry_priority": false
+      },
+      "background": {
+        "max_concurrent": 3,
+        "timeout_multiplier": 2.0,
+        "retry_priority": false
+      }
+    },
+    "batch_processing": {
+      "enabled": true,
+      "default_batch_size": 100,
+      "max_batch_size": 1000,
+      "batch_timeout": 60.0,
+      "auto_batch_detection": true
+    },
+    "dependency_resolution": {
+      "enabled": true,
+      "max_depth": 10,
+      "circular_detection": true,
+      "timeout_per_level": 30.0
+    },
+    "error_isolation": {
+      "enabled": true,
+      "fail_fast": false,
+      "collect_all_errors": true,
+      "partial_results_allowed": true
+    },
+    "result_aggregation": {
+      "strategy": "ordered",
+      "include_metadata": true,
+      "compress_large_results": true,
+      "max_result_size_mb": 100
+    }
+  },
+
+  "error_recovery_manager": {
+    "enabled": true,
+    "retry": {
+      "max_attempts": 5,
+      "base_delay_seconds": 1.0,
+      "max_delay_seconds": 120.0,
+      "exponential_base": 2.0,
+      "jitter_enabled": true,
+      "jitter_factor": 0.25,
+      "retry_on_timeout": true,
+      "retry_budget_per_minute": 100
+    },
+    "circuit_breaker": {
+      "enabled": true,
+      "failure_threshold": 5,
+      "success_threshold": 3,
+      "recovery_timeout_seconds": 60.0,
+      "half_open_max_calls": 5,
+      "sliding_window_size": 100,
+      "sliding_window_type": "count",
+      "minimum_calls": 10,
+      "slow_call_threshold_seconds": 10.0,
+      "slow_call_rate_threshold": 0.5,
+      "per_fsa_circuits": true,
+      "shared_circuits": {
+        "enabled": false,
+        "groups": []
+      }
+    },
+    "error_classification": {
+      "retryable": [
+        "ConnectionError",
+        "TimeoutError",
+        "asyncio.TimeoutError",
+        "OSError",
+        "aiohttp.ClientError",
+        "aiohttp.ServerDisconnectedError",
+        "ConnectionResetError",
+        "BrokenPipeError"
+      ],
+      "non_retryable": [
+        "ValueError",
+        "TypeError",
+        "KeyError",
+        "AttributeError",
+        "PermissionError",
+        "AuthenticationError"
+      ],
+      "circuit_breaking": [
+        "ServiceUnavailableError",
+        "RateLimitError",
+        "QuotaExceededError"
+      ]
+    },
+    "fallback": {
+      "enabled": true,
+      "default_fallback_timeout": 5.0,
+      "cache_fallback_results": true,
+      "fallback_cache_ttl": 300
+    },
+    "health_check": {
+      "enabled": true,
+      "interval_seconds": 30,
+      "timeout_seconds": 10,
+      "failure_threshold": 3,
+      "success_threshold": 2,
+      "include_in_circuit_state": true
+    }
+  },
+
+  "monitoring_dashboard": {
+    "enabled": true,
+    "websocket": {
+      "host": "0.0.0.0",
+      "port": 8765,
+      "max_connections": 500,
+      "ping_interval_seconds": 30,
+      "ping_timeout_seconds": 10,
+      "message_queue_size": 1000,
+      "compression": true,
+      "ssl": {
+        "enabled": false,
+        "cert_file": "",
+        "key_file": ""
+      }
+    },
+    "metrics": {
+      "enabled": true,
+      "collection_interval_seconds": 5,
+      "history_size": 10000,
+      "percentiles": [50, 75, 90, 95, 99, 99.9],
+      "histogram_buckets": [0.001, 0.005, 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10],
+      "categories": {
+        "latency": {
+          "enabled": true,
+          "unit": "seconds",
+          "warning_threshold": 5.0,
+          "critical_threshold": 30.0
+        },
+        "throughput": {
+          "enabled": true,
+          "unit": "requests_per_second",
+          "warning_threshold": 10,
+          "critical_threshold": 1
+        },
+        "success_rate": {
+          "enabled": true,
+          "unit": "percentage",
+          "warning_threshold": 95.0,
+          "critical_threshold": 90.0
+        },
+        "error_rate": {
+          "enabled": true,
+          "unit": "percentage",
+          "warning_threshold": 5.0,
+          "critical_threshold": 10.0
+        },
+        "queue_depth": {
+          "enabled": true,
+          "unit": "count",
+          "warning_threshold": 500,
+          "critical_threshold": 1000
+        },
+        "active_connections": {
+          "enabled": true,
+          "unit": "count",
+          "warning_threshold": 400,
+          "critical_threshold": 480
+        }
+      }
+    },
+    "resource_monitoring": {
+      "enabled": true,
+      "interval_seconds": 10,
+      "cpu": {
+        "enabled": true,
+        "warning_threshold_percent": 80,
+        "critical_threshold_percent": 95
+      },
+      "memory": {
+        "enabled": true,
+        "warning_threshold_percent": 80,
+        "critical_threshold_percent": 95,
+        "max_memory_mb": 4096
+      },
+      "disk": {
+        "enabled": false,
+        "paths": ["/"],
+        "warning_threshold_percent": 85,
+        "critical_threshold_percent": 95
+      },
+      "network": {
+        "enabled": false,
+        "interfaces": ["eth0"]
+      }
+    },
+    "alerts": {
+      "enabled": true,
+      "max_alerts": 1000,
+      "deduplication_window_seconds": 300,
+      "auto_acknowledge_after_seconds": 3600,
+      "escalation": {
+        "enabled": true,
+        "levels": [
+          {
+            "name": "warning",
+            "delay_seconds": 0,
+            "channels": ["dashboard"]
+          },
+          {
+            "name": "error",
+            "delay_seconds": 300,
+            "channels": ["dashboard", "email"]
+          },
+          {
+            "name": "critical",
+            "delay_seconds": 60,
+            "channels": ["dashboard", "email", "slack", "pagerduty"]
+          }
+        ]
+      },
+      "channels": {
+        "dashboard": {
+          "enabled": true
+        },
+        "email": {
+          "enabled": false,
+          "recipients": [],
+          "smtp_config": {}
+        },
+        "slack": {
+          "enabled": false,
+          "webhook_url": "",
+          "channel": "#alerts"
+        },
+        "pagerduty": {
+          "enabled": false,
+          "routing_key": ""
+        },
+        "webhook": {
+          "enabled": false,
+          "url": "",
+          "headers": {}
+        }
+      }
+    },
+    "export": {
+      "prometheus": {
+        "enabled": true,
+        "port": 9090,
+        "path": "/metrics",
+        "include_histograms": true
+      },
+      "json": {
+        "enabled": true,
+        "path": "metrics/",
+        "rotation_interval_seconds": 3600,
+        "max_files": 24,
+        "compression": true
+      },
+      "statsd": {
+        "enabled": false,
+        "host": "localhost",
+        "port": 8125,
+        "prefix": "fsa"
+      }
+    },
+    "dashboard": {
+      "auto_refresh_seconds": 10,
+      "theme": "dark",
+      "charts": {
+        "latency_chart": true,
+        "throughput_chart": true,
+        "error_rate_chart": true,
+        "circuit_breaker_chart": true,
+        "resource_usage_chart": true
+      }
+    }
+  },
+
+  "hot_swap_manager": {
+    "enabled": true,
+    "loading": {
+      "auto_discovery": true,
+      "discovery_paths": ["fsas/", "agents/", "custom/"],
+      "file_patterns": ["*.py"],
+      "exclude_patterns": ["__pycache__", "*.pyc", "test_*", "*_test.py"],
+      "watch_for_changes": true,
+      "watch_interval_seconds": 5,
+      "reload_on_change": false
+    },
+    "version_management": {
+      "enabled": true,
+      "max_versions_retained": 10,
+      "auto_cleanup": true,
+      "version_format": "semver",
+      "track_history": true
+    },
+    "graceful_shutdown": {
+      "enabled": true,
+      "drain_timeout_seconds": 60,
+      "force_kill_after_seconds": 120,
+      "wait_for_in_flight": true,
+      "max_in_flight_wait_seconds": 300
+    },
+    "migration": {
+      "enabled": true,
+      "strategy": "blue_green",
+      "canary_percentage": 10,
+      "canary_duration_seconds": 300,
+      "rollback_on_error_rate": 0.1,
+      "health_check_before_promotion": true
+    },
+    "rollback": {
+      "enabled": true,
+      "auto_rollback": true,
+      "auto_rollback_triggers": {
+        "error_rate_threshold": 0.2,
+        "latency_increase_threshold": 2.0,
+        "health_check_failures": 3
+      },
+      "max_rollback_attempts": 3,
+      "cooldown_seconds": 300
+    },
+    "sandbox": {
+      "enabled": true,
+      "test_before_deploy": true,
+      "test_timeout_seconds": 60,
+      "test_cases": ["health_check", "basic_execution"]
+    }
+  },
+
+  "performance_optimizer": {
+    "enabled": true,
+    "profiling": {
+      "enabled": true,
+      "sample_rate": 0.1,
+      "include_stack_traces": false,
+      "max_stack_depth": 20,
+      "track_memory": true,
+      "track_cpu": true,
+      "track_io": false,
+      "output_format": "json",
+      "output_path": "profiling/"
+    },
+    "bottleneck_detection": {
+      "enabled": true,
+      "analysis_interval_seconds": 60,
+      "latency_threshold_ms": 1000,
+      "throughput_threshold_rps": 10,
+      "detection_algorithms": ["statistical", "ml_based"],
+      "alert_on_detection": true
+    },
+    "caching": {
+      "enabled": true,
+      "recommendation_engine": true,
+      "auto_cache_frequent_calls": true,
+      "cache_hit_rate_threshold": 0.8,
+      "backends": {
+        "memory": {
+          "enabled": true,
+          "max_size_mb": 512,
+          "ttl_seconds": 300,
+          "eviction_policy": "lru"
+        },
+        "redis": {
+          "enabled": false,
+          "host": "localhost",
+          "port": 6379,
+          "db": 0,
+          "ttl_seconds": 3600
+        },
+        "disk": {
+          "enabled": false,
+          "path": "cache/",
+          "max_size_mb": 2048,
+          "ttl_seconds": 86400
+        }
+      }
+    },
+    "parallelization": {
+      "enabled": true,
+      "auto_detect_opportunities": true,
+      "min_speedup_threshold": 1.5,
+      "max_parallel_factor": 4,
+      "dependency_analysis": true
+    },
+    "auto_tuning": {
+      "enabled": false,
+      "learning_rate": 0.1,
+      "exploration_rate": 0.2,
+      "optimization_interval_seconds": 3600,
+      "parameters_to_tune": [
+        "concurrency_limit",
+        "batch_size",
+        "timeout",
+        "retry_delay"
+      ],
+      "constraints": {
+        "concurrency_limit": {"min": 1, "max": 100},
+        "batch_size": {"min": 1, "max": 1000},
+        "timeout": {"min": 1, "max": 300},
+        "retry_delay": {"min": 0.1, "max": 60}
+      }
+    },
+    "reports": {
+      "enabled": true,
+      "generation_interval_seconds": 3600,
+      "output_path": "reports/performance/",
+      "formats": ["json", "html"],
+      "include_recommendations": true,
+      "include_trends": true,
+      "retention_days": 30
+    }
+  },
+
+  "workflow_orchestrator": {
+    "enabled": true,
+    "execution": {
+      "max_parallel_workflows": 20,
+      "max_parallel_steps": 50,
+      "default_timeout_seconds": 600,
+      "step_timeout_seconds": 120
+    },
+    "error_handling": {
+      "strategy": "continue",
+      "max_step_retries": 3,
+      "rollback_on_failure": false,
+      "compensating_transactions": false
+    },
+    "state_management": {
+      "persistence": true,
+      "backend": "sqlite",
+      "checkpoint_interval_seconds": 30,
+      "resume_on_restart": true
+    }
+  },
+
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "date_format": "%Y-%m-%d %H:%M:%S",
+    "handlers": {
+      "console": {
+        "enabled": true,
+        "level": "INFO",
+        "colored": true
+      },
+      "file": {
+        "enabled": true,
+        "level": "DEBUG",
+        "path": "logs/fsa_integration.log",
+        "max_bytes": 104857600,
+        "backup_count": 10,
+        "encoding": "utf-8"
+      },
+      "json": {
+        "enabled": true,
+        "level": "INFO",
+        "path": "logs/fsa_integration.json",
+        "max_bytes": 104857600,
+        "backup_count": 10
+      }
+    },
+    "component_levels": {
+      "ParallelExecutor": "INFO",
+      "ErrorRecoveryManager": "INFO",
+      "CircuitBreaker": "WARNING",
+      "MonitoringDashboard": "INFO",
+      "HotSwapManager": "INFO",
+      "PerformanceOptimizer": "INFO",
+      "WorkflowOrchestrator": "INFO"
+    }
+  },
+
+  "security": {
+    "authentication": {
+      "enabled": false,
+      "type": "api_key",
+      "api_key_header": "X-API-Key"
+    },
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_second": 100,
+      "burst_size": 200,
+      "per_client": true
+    },
+    "input_validation": {
+      "enabled": true,
+      "max_input_size_mb": 10,
+      "sanitize_inputs": true
+    }
+  },
+
+  "cli": {
+    "commands": {
+      "server": {
+        "description": "Start the monitoring server",
+        "default_host": "0.0.0.0",
+        "default_port": 8765
+      },
+      "dashboard": {
+        "description": "Generate static dashboard",
+        "default_output": "dashboard.html"
+      },
+      "health": {
+        "description": "Check system health",
+        "include_details": true
+      },
+      "stats": {
+        "description": "Show statistics",
+        "include_history": true
+      },
+      "load": {
+        "description": "Load an FSA dynamically"
+      },
+      "unload": {
+        "description": "Unload an FSA"
+      },
+      "swap": {
+        "description": "Hot-swap an FSA"
+      },
+      "rollback": {
+        "description": "Rollback an FSA to previous version"
+      },
+      "optimize": {
+        "description": "Run performance optimization"
+      },
+      "profile": {
+        "description": "Profile FSA execution"
+      }
+    }
+  }
+}

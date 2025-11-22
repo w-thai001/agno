@@ -2508,6 +2508,187 @@ async def main_async(args: argparse.Namespace) -> int:
         await layer.shutdown(graceful=False)
 
 
+# =============================================================================
+# Production Configuration Loader
+# =============================================================================
+
+
+def load_production_config(config_path: Optional[str] = None) -> Dict[str, Any]:
+    """
+    Load production configuration from JSON file.
+
+    Args:
+        config_path: Path to configuration file. If None, uses default location.
+
+    Returns:
+        Configuration dictionary with all production settings.
+
+    Example:
+        >>> config = load_production_config()
+        >>> print(config["parallel_executor"]["max_concurrency"])
+        50
+    """
+    if config_path is None:
+        # Try default locations
+        search_paths = [
+            Path(__file__).parent / "production_config.json",
+            Path.cwd() / "production_config.json",
+            Path.home() / ".config" / "fsa" / "production_config.json",
+        ]
+        for path in search_paths:
+            if path.exists():
+                config_path = str(path)
+                break
+
+    if config_path is None or not Path(config_path).exists():
+        logger.warning("Production config not found, using defaults")
+        return get_default_production_config()
+
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            config = json.load(f)
+        logger.info(f"Loaded production config from: {config_path}")
+        return config
+    except (json.JSONDecodeError, IOError) as e:
+        logger.error(f"Error loading config from {config_path}: {e}")
+        return get_default_production_config()
+
+
+def get_default_production_config() -> Dict[str, Any]:
+    """
+    Get default production configuration.
+
+    Returns:
+        Default configuration dictionary.
+    """
+    return {
+        "parallel_executor": {
+            "max_concurrency": DEFAULT_CONCURRENCY_LIMIT,
+            "task_queue_size": 1000,
+            "default_task_timeout": 60.0,
+        },
+        "error_recovery_manager": {
+            "retry": {
+                "max_attempts": DEFAULT_MAX_RETRIES,
+                "base_delay_seconds": DEFAULT_RETRY_DELAY,
+                "max_delay_seconds": 60.0,
+                "exponential_base": 2.0,
+                "jitter_enabled": True,
+            },
+            "circuit_breaker": {
+                "failure_threshold": DEFAULT_CIRCUIT_THRESHOLD,
+                "recovery_timeout_seconds": DEFAULT_CIRCUIT_TIMEOUT,
+                "half_open_max_calls": 3,
+            },
+        },
+        "monitoring_dashboard": {
+            "websocket": {
+                "host": "0.0.0.0",
+                "port": DEFAULT_WEBSOCKET_PORT,
+                "max_connections": 100,
+            },
+            "metrics": {
+                "history_size": METRICS_HISTORY_SIZE,
+                "collection_interval_seconds": 5,
+            },
+        },
+        "hot_swap_manager": {
+            "graceful_shutdown": {
+                "drain_timeout_seconds": 30,
+            },
+            "version_management": {
+                "max_versions_retained": 5,
+            },
+        },
+        "performance_optimizer": {
+            "profiling": {
+                "enabled": False,
+                "sample_rate": 0.1,
+            },
+            "caching": {
+                "enabled": True,
+                "max_size_mb": 256,
+            },
+        },
+    }
+
+
+async def create_production_layer(
+    config_path: Optional[str] = None,
+    **overrides,
+) -> FSAIntegrationLayer:
+    """
+    Create a production-ready FSA Integration Layer with optimized settings.
+
+    Args:
+        config_path: Path to production config file
+        **overrides: Override specific configuration values
+
+    Returns:
+        Initialized FSAIntegrationLayer instance
+
+    Example:
+        >>> layer = await create_production_layer()
+        >>> await layer.execute("my_fsa", {"input": "data"})
+
+        >>> # With custom config
+        >>> layer = await create_production_layer(
+        ...     config_path="custom_config.json",
+        ...     max_concurrency=100
+        ... )
+    """
+    config = load_production_config(config_path)
+
+    # Apply overrides
+    executor_config = config.get("parallel_executor", {})
+    max_concurrency = overrides.get(
+        "max_concurrency",
+        executor_config.get("max_concurrency", DEFAULT_CONCURRENCY_LIMIT)
+    )
+
+    monitoring_config = config.get("monitoring_dashboard", {})
+    enable_monitoring = overrides.get(
+        "enable_monitoring",
+        monitoring_config.get("enabled", True)
+    )
+
+    optimizer_config = config.get("performance_optimizer", {})
+    enable_optimization = overrides.get(
+        "enable_optimization",
+        optimizer_config.get("enabled", True)
+    )
+
+    # Create layer with production settings
+    layer = FSAIntegrationLayer(
+        max_concurrency=max_concurrency,
+        enable_monitoring=enable_monitoring,
+        enable_optimization=enable_optimization,
+    )
+
+    # Apply additional configuration
+    if layer.error_recovery:
+        retry_config = config.get("error_recovery_manager", {}).get("retry", {})
+        layer.error_recovery.max_retries = retry_config.get("max_attempts", DEFAULT_MAX_RETRIES)
+        layer.error_recovery.base_delay = retry_config.get("base_delay_seconds", DEFAULT_RETRY_DELAY)
+        layer.error_recovery.max_delay = retry_config.get("max_delay_seconds", 60.0)
+        layer.error_recovery.jitter = retry_config.get("jitter_enabled", True)
+
+    if layer.optimizer:
+        opt_config = config.get("performance_optimizer", {})
+        thresholds = opt_config.get("bottleneck_detection", {})
+        if thresholds.get("enabled", True):
+            layer.optimizer.set_threshold(
+                "execution_time",
+                warning=thresholds.get("latency_threshold_ms", 1000) / 1000,
+                critical=thresholds.get("latency_threshold_ms", 1000) / 1000 * 3,
+            )
+
+    await layer.initialize()
+
+    logger.info("Production FSA Integration Layer initialized")
+    return layer
+
+
 def main() -> int:
     """Main entry point."""
     parser = create_argument_parser()
