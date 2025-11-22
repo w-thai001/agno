@@ -1,0 +1,515 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "mla-fsa-framework-config",
+  "$comment": "MLA-FSA Framework Configuration - Version 1.0.0",
+
+  "framework": {
+    "name": "MLA-FSA Framework",
+    "version": "1.0.0",
+    "description": "Meta-Learning Architecture Financial Services Agent Framework",
+    "environment": "development",
+    "debug": false
+  },
+
+  "execution": {
+    "max_concurrency": 10,
+    "default_timeout": 60.0,
+    "task_queue_size": 1000,
+    "worker_threads": 4,
+    "enable_profiling": false,
+    "graceful_shutdown_timeout": 30.0
+  },
+
+  "error_recovery": {
+    "enabled": true,
+    "max_retries": 3,
+    "base_delay": 1.0,
+    "max_delay": 60.0,
+    "exponential_base": 2.0,
+    "jitter_enabled": true,
+    "jitter_factor": 0.25,
+    "retryable_exceptions": [
+      "ConnectionError",
+      "TimeoutError",
+      "asyncio.TimeoutError",
+      "OSError",
+      "aiohttp.ClientError"
+    ]
+  },
+
+  "circuit_breaker": {
+    "enabled": true,
+    "failure_threshold": 5,
+    "recovery_timeout": 30.0,
+    "half_open_max_calls": 3,
+    "per_fsa_circuits": true
+  },
+
+  "monitoring": {
+    "enabled": true,
+    "websocket": {
+      "host": "0.0.0.0",
+      "port": 8765,
+      "max_connections": 100,
+      "ping_interval": 30,
+      "ping_timeout": 10
+    },
+    "metrics": {
+      "history_size": 1000,
+      "collection_interval": 5.0,
+      "export_interval": 60.0
+    },
+    "alerts": {
+      "enabled": true,
+      "max_alerts": 100,
+      "auto_acknowledge_after": 3600
+    },
+    "dashboard": {
+      "auto_refresh_interval": 30,
+      "theme": "dark"
+    }
+  },
+
+  "performance": {
+    "optimization_enabled": true,
+    "thresholds": {
+      "execution_time": {
+        "warning": 5.0,
+        "critical": 30.0
+      },
+      "error_rate": {
+        "warning": 0.1,
+        "critical": 0.5
+      },
+      "memory_usage_mb": {
+        "warning": 512,
+        "critical": 1024
+      },
+      "queue_depth": {
+        "warning": 100,
+        "critical": 500
+      }
+    },
+    "profiling": {
+      "enabled": false,
+      "sample_rate": 0.1,
+      "include_stack_traces": false
+    },
+    "caching": {
+      "enabled": true,
+      "ttl": 300,
+      "max_size": 1000
+    }
+  },
+
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "date_format": "%Y-%m-%d %H:%M:%S",
+    "handlers": {
+      "console": {
+        "enabled": true,
+        "level": "INFO",
+        "format": "colored",
+        "stream": "stderr"
+      },
+      "file": {
+        "enabled": true,
+        "level": "DEBUG",
+        "path": "logs/fsa_framework.log",
+        "max_bytes": 10485760,
+        "backup_count": 5,
+        "encoding": "utf-8"
+      },
+      "json": {
+        "enabled": false,
+        "level": "INFO",
+        "path": "logs/fsa_framework.json",
+        "max_bytes": 10485760,
+        "backup_count": 5
+      }
+    },
+    "loggers": {
+      "FSAIntegrationLayer": "INFO",
+      "ParallelExecutor": "INFO",
+      "ErrorRecoveryManager": "WARNING",
+      "CircuitBreaker": "WARNING",
+      "HotSwapManager": "INFO",
+      "PerformanceOptimizer": "INFO",
+      "MonitoringDashboard": "INFO",
+      "FSATestSuiteGenerator": "INFO"
+    }
+  },
+
+  "hot_swap": {
+    "enabled": true,
+    "graceful_drain_timeout": 30.0,
+    "version_history_size": 10,
+    "auto_rollback_on_failure": true,
+    "health_check_after_swap": true
+  },
+
+  "fsa_registry": {
+    "auto_discovery": true,
+    "discovery_paths": [
+      "fsas/",
+      "agents/",
+      "custom/"
+    ],
+    "file_pattern": "*.py",
+    "exclude_patterns": [
+      "__pycache__",
+      "*.pyc",
+      "test_*",
+      "*_test.py"
+    ]
+  },
+
+  "fsas": {
+    "fsa01_data_validator": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa01_data_validator.py",
+      "class_name": "DataValidatorFSA",
+      "version": "1.0.0",
+      "priority": "normal",
+      "timeout": 30.0,
+      "max_retries": 3,
+      "parameters": {
+        "strict_mode": true,
+        "allow_extra_fields": false,
+        "coerce_types": true
+      },
+      "tags": ["validation", "data-quality"]
+    },
+
+    "fsa02_market_analyzer": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa02_market_analyzer.py",
+      "class_name": "MarketAnalyzerFSA",
+      "version": "1.0.0",
+      "priority": "high",
+      "timeout": 60.0,
+      "max_retries": 3,
+      "parameters": {
+        "data_source": "yfinance",
+        "cache_ttl": 300,
+        "include_technical_indicators": true,
+        "indicators": ["SMA", "EMA", "RSI", "MACD", "BB"]
+      },
+      "tags": ["market", "analysis", "finance"]
+    },
+
+    "fsa03_risk_assessor": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa03_risk_assessor.py",
+      "class_name": "RiskAssessorFSA",
+      "version": "1.0.0",
+      "priority": "high",
+      "timeout": 45.0,
+      "max_retries": 2,
+      "parameters": {
+        "risk_models": ["VaR", "CVaR", "Sharpe", "Sortino"],
+        "confidence_levels": [0.95, 0.99],
+        "lookback_period": 252,
+        "monte_carlo_simulations": 10000
+      },
+      "tags": ["risk", "assessment", "finance"]
+    },
+
+    "fsa04_portfolio_optimizer": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa04_portfolio_optimizer.py",
+      "class_name": "PortfolioOptimizerFSA",
+      "version": "1.0.0",
+      "priority": "normal",
+      "timeout": 120.0,
+      "max_retries": 2,
+      "parameters": {
+        "optimization_method": "mean_variance",
+        "risk_free_rate": 0.05,
+        "constraints": {
+          "min_weight": 0.0,
+          "max_weight": 0.4,
+          "max_sector_weight": 0.3
+        },
+        "rebalance_threshold": 0.05
+      },
+      "tags": ["portfolio", "optimization", "finance"]
+    },
+
+    "fsa05_compliance_checker": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa05_compliance_checker.py",
+      "class_name": "ComplianceCheckerFSA",
+      "version": "1.0.0",
+      "priority": "critical",
+      "timeout": 30.0,
+      "max_retries": 1,
+      "parameters": {
+        "regulations": ["MiFID_II", "SEC_Rule_15c3", "Basel_III"],
+        "strict_mode": true,
+        "audit_logging": true,
+        "alert_on_violation": true
+      },
+      "tags": ["compliance", "regulatory", "audit"]
+    },
+
+    "fsa06_report_generator": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa06_report_generator.py",
+      "class_name": "ReportGeneratorFSA",
+      "version": "1.0.0",
+      "priority": "low",
+      "timeout": 180.0,
+      "max_retries": 2,
+      "parameters": {
+        "output_formats": ["pdf", "html", "json", "xlsx"],
+        "template_dir": "templates/reports",
+        "include_charts": true,
+        "chart_library": "plotly",
+        "compression": true
+      },
+      "tags": ["reporting", "output", "visualization"]
+    },
+
+    "fsa07_alert_manager": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa07_alert_manager.py",
+      "class_name": "AlertManagerFSA",
+      "version": "1.0.0",
+      "priority": "critical",
+      "timeout": 10.0,
+      "max_retries": 3,
+      "parameters": {
+        "channels": ["email", "slack", "webhook"],
+        "throttle_period": 60,
+        "max_alerts_per_period": 10,
+        "escalation_enabled": true,
+        "escalation_timeout": 300
+      },
+      "tags": ["alerts", "notifications", "monitoring"]
+    },
+
+    "fsa08_data_aggregator": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa08_data_aggregator.py",
+      "class_name": "DataAggregatorFSA",
+      "version": "1.0.0",
+      "priority": "normal",
+      "timeout": 90.0,
+      "max_retries": 3,
+      "parameters": {
+        "sources": ["yfinance", "alpha_vantage", "internal_db"],
+        "aggregation_methods": ["mean", "weighted", "latest"],
+        "conflict_resolution": "weighted_average",
+        "cache_enabled": true,
+        "parallel_fetch": true
+      },
+      "tags": ["data", "aggregation", "integration"]
+    },
+
+    "fsa09_prediction_engine": {
+      "enabled": true,
+      "module_path": "agno/fsas/fsa09_prediction_engine.py",
+      "class_name": "PredictionEngineFSA",
+      "version": "1.0.0",
+      "priority": "normal",
+      "timeout": 300.0,
+      "max_retries": 2,
+      "parameters": {
+        "models": ["ARIMA", "LSTM", "Prophet", "XGBoost"],
+        "ensemble_method": "weighted_average",
+        "forecast_horizon": 30,
+        "confidence_intervals": [0.8, 0.95],
+        "feature_engineering": true,
+        "auto_tune": false
+      },
+      "tags": ["prediction", "ml", "forecasting"]
+    },
+
+    "fsa10_test_generator": {
+      "enabled": true,
+      "module_path": "agno/fsa10_test_suite_generator.py",
+      "class_name": "FSATestSuiteGenerator",
+      "version": "1.0.0",
+      "priority": "low",
+      "timeout": 600.0,
+      "max_retries": 1,
+      "parameters": {
+        "output_dir": "tests/generated",
+        "coverage_threshold": 80.0,
+        "generate_unit_tests": true,
+        "generate_integration_tests": true,
+        "generate_edge_cases": true,
+        "pytest_compatible": true,
+        "report_formats": ["json", "html"]
+      },
+      "tags": ["testing", "quality", "automation"]
+    }
+  },
+
+  "workflows": {
+    "financial_analysis_pipeline": {
+      "enabled": true,
+      "description": "Complete financial analysis workflow",
+      "version": "1.0.0",
+      "timeout": 300.0,
+      "max_parallel": 5,
+      "error_handling": "continue",
+      "steps": [
+        {
+          "name": "validate_input",
+          "fsa": "fsa01_data_validator",
+          "required": true
+        },
+        {
+          "name": "fetch_data",
+          "fsa": "fsa08_data_aggregator",
+          "depends_on": ["validate_input"]
+        },
+        {
+          "name": "analyze_market",
+          "fsa": "fsa02_market_analyzer",
+          "depends_on": ["fetch_data"],
+          "parallel_group": "analysis"
+        },
+        {
+          "name": "assess_risk",
+          "fsa": "fsa03_risk_assessor",
+          "depends_on": ["fetch_data"],
+          "parallel_group": "analysis"
+        },
+        {
+          "name": "check_compliance",
+          "fsa": "fsa05_compliance_checker",
+          "depends_on": ["analyze_market", "assess_risk"]
+        },
+        {
+          "name": "generate_report",
+          "fsa": "fsa06_report_generator",
+          "depends_on": ["check_compliance"]
+        }
+      ]
+    },
+
+    "risk_monitoring_pipeline": {
+      "enabled": true,
+      "description": "Real-time risk monitoring workflow",
+      "version": "1.0.0",
+      "timeout": 60.0,
+      "max_parallel": 3,
+      "error_handling": "fail_fast",
+      "steps": [
+        {
+          "name": "fetch_positions",
+          "fsa": "fsa08_data_aggregator"
+        },
+        {
+          "name": "calculate_risk",
+          "fsa": "fsa03_risk_assessor",
+          "depends_on": ["fetch_positions"]
+        },
+        {
+          "name": "check_limits",
+          "fsa": "fsa05_compliance_checker",
+          "depends_on": ["calculate_risk"]
+        },
+        {
+          "name": "send_alerts",
+          "fsa": "fsa07_alert_manager",
+          "depends_on": ["check_limits"],
+          "condition": "check_limits.violations > 0"
+        }
+      ]
+    }
+  },
+
+  "storage": {
+    "type": "sqlite",
+    "connection": {
+      "sqlite": {
+        "path": "data/fsa_framework.db"
+      },
+      "postgresql": {
+        "host": "localhost",
+        "port": 5432,
+        "database": "fsa_framework",
+        "user": "fsa_user",
+        "password": "${DB_PASSWORD}",
+        "pool_size": 5,
+        "max_overflow": 10
+      },
+      "redis": {
+        "host": "localhost",
+        "port": 6379,
+        "db": 0,
+        "password": "${REDIS_PASSWORD}",
+        "ssl": false
+      }
+    }
+  },
+
+  "security": {
+    "api_key_enabled": false,
+    "api_key_header": "X-API-Key",
+    "jwt": {
+      "enabled": false,
+      "algorithm": "HS256",
+      "expiry_seconds": 3600,
+      "secret_key": "${JWT_SECRET_KEY}"
+    },
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 100,
+      "burst_size": 20
+    },
+    "cors": {
+      "enabled": true,
+      "allow_origins": ["*"],
+      "allow_methods": ["GET", "POST", "PUT", "DELETE"],
+      "allow_headers": ["*"]
+    }
+  },
+
+  "integrations": {
+    "openai": {
+      "enabled": false,
+      "api_key": "${OPENAI_API_KEY}",
+      "model": "gpt-4",
+      "max_tokens": 4096,
+      "temperature": 0.7
+    },
+    "anthropic": {
+      "enabled": false,
+      "api_key": "${ANTHROPIC_API_KEY}",
+      "model": "claude-3-sonnet-20240229",
+      "max_tokens": 4096
+    },
+    "slack": {
+      "enabled": false,
+      "webhook_url": "${SLACK_WEBHOOK_URL}",
+      "channel": "#fsa-alerts"
+    },
+    "email": {
+      "enabled": false,
+      "smtp_host": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "${EMAIL_USERNAME}",
+      "password": "${EMAIL_PASSWORD}",
+      "from_address": "fsa-framework@example.com"
+    }
+  },
+
+  "testing": {
+    "output_dir": "tests/generated",
+    "coverage_threshold": 80.0,
+    "parallel_workers": 4,
+    "timeout_per_test": 30.0,
+    "report_formats": ["json", "html"],
+    "fixtures": {
+      "mock_data_dir": "tests/fixtures/data",
+      "use_vcr": true,
+      "vcr_cassette_dir": "tests/fixtures/cassettes"
+    }
+  }
+}

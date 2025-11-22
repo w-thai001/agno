@@ -1,0 +1,264 @@
+# =============================================================================
+# MLA-FSA Framework - Python Dependencies
+# Meta-Learning Architecture Financial Services Agent Framework
+# Version: 1.0.0
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Core Framework Dependencies
+# -----------------------------------------------------------------------------
+
+# Agno Framework (parent package)
+# agno>=0.1.0  # Uncomment if installing separately
+
+# Pydantic for data validation and settings
+pydantic>=2.0.0,<3.0.0
+pydantic-settings>=2.0.0
+
+# -----------------------------------------------------------------------------
+# Async and Concurrency
+# -----------------------------------------------------------------------------
+
+# Async HTTP client
+aiohttp>=3.8.0,<4.0.0
+aiofiles>=23.0.0
+
+# WebSocket support for real-time monitoring
+websockets>=11.0.0,<13.0.0
+
+# Async utilities
+anyio>=3.7.0
+asyncio-throttle>=1.0.0
+
+# -----------------------------------------------------------------------------
+# Testing Framework
+# -----------------------------------------------------------------------------
+
+# Pytest and plugins
+pytest>=7.4.0,<9.0.0
+pytest-asyncio>=0.21.0,<1.0.0
+pytest-cov>=4.1.0,<6.0.0
+pytest-xdist>=3.3.0  # Parallel test execution
+pytest-timeout>=2.2.0
+pytest-mock>=3.11.0
+pytest-html>=4.0.0  # HTML test reports
+pytest-json-report>=1.5.0  # JSON test reports
+
+# Code coverage
+coverage[toml]>=7.3.0,<8.0.0
+
+# -----------------------------------------------------------------------------
+# Graph and Algorithm Libraries
+# -----------------------------------------------------------------------------
+
+# Graph algorithms for workflow orchestration
+networkx>=3.1,<4.0.0
+
+# -----------------------------------------------------------------------------
+# Logging and Monitoring
+# -----------------------------------------------------------------------------
+
+# Structured JSON logging
+python-json-logger>=2.0.0,<3.0.0
+
+# Rich console output
+rich>=13.0.0,<14.0.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# -----------------------------------------------------------------------------
+# Data Processing
+# -----------------------------------------------------------------------------
+
+# Data manipulation
+pandas>=2.0.0,<3.0.0
+numpy>=1.24.0,<2.0.0
+
+# JSON handling
+orjson>=3.9.0  # Fast JSON serialization
+ujson>=5.8.0   # Ultra-fast JSON
+
+# YAML configuration
+pyyaml>=6.0.0,<7.0.0
+
+# -----------------------------------------------------------------------------
+# HTTP and API Clients
+# -----------------------------------------------------------------------------
+
+# HTTP requests
+httpx>=0.24.0,<1.0.0
+requests>=2.31.0,<3.0.0
+
+# Rate limiting
+ratelimit>=2.2.1
+
+# Retry logic
+tenacity>=8.2.0,<9.0.0
+
+# -----------------------------------------------------------------------------
+# Caching and Storage
+# -----------------------------------------------------------------------------
+
+# Caching
+cachetools>=5.3.0,<6.0.0
+diskcache>=5.6.0
+
+# Redis client (optional, for distributed caching)
+redis>=4.6.0,<6.0.0
+
+# -----------------------------------------------------------------------------
+# Serialization and Schema
+# -----------------------------------------------------------------------------
+
+# JSON Schema validation
+jsonschema>=4.19.0,<5.0.0
+
+# Dataclasses utilities
+dataclasses-json>=0.6.0
+
+# Marshmallow for serialization
+marshmallow>=3.20.0,<4.0.0
+
+# -----------------------------------------------------------------------------
+# CLI and Configuration
+# -----------------------------------------------------------------------------
+
+# CLI framework
+click>=8.1.0,<9.0.0
+typer>=0.9.0,<1.0.0
+
+# Environment variable management
+python-dotenv>=1.0.0,<2.0.0
+
+# Configuration management
+dynaconf>=3.2.0,<4.0.0
+
+# -----------------------------------------------------------------------------
+# Profiling and Performance
+# -----------------------------------------------------------------------------
+
+# Memory profiling
+memory-profiler>=0.61.0
+pympler>=1.0.0
+
+# CPU profiling
+py-spy>=0.3.0  # Optional, requires separate installation
+line-profiler>=4.1.0
+
+# Async profiling
+aiomonitor>=0.6.0
+
+# -----------------------------------------------------------------------------
+# Security
+# -----------------------------------------------------------------------------
+
+# Cryptography for secure communications
+cryptography>=41.0.0,<43.0.0
+
+# JWT handling
+pyjwt>=2.8.0,<3.0.0
+
+# Secrets management
+python-secrets>=1.0.0
+
+# -----------------------------------------------------------------------------
+# Documentation
+# -----------------------------------------------------------------------------
+
+# Docstring parsing
+docstring-parser>=0.15
+
+# API documentation
+mkdocs>=1.5.0
+mkdocs-material>=9.4.0
+mkdocstrings[python]>=0.23.0
+
+# -----------------------------------------------------------------------------
+# Development Tools (Optional)
+# -----------------------------------------------------------------------------
+
+# Code formatting
+black>=23.9.0
+isort>=5.12.0
+
+# Linting
+flake8>=6.1.0
+pylint>=3.0.0
+mypy>=1.5.0
+
+# Pre-commit hooks
+pre-commit>=3.4.0
+
+# -----------------------------------------------------------------------------
+# Type Stubs
+# -----------------------------------------------------------------------------
+
+types-requests>=2.31.0
+types-pyyaml>=6.0.0
+types-redis>=4.6.0
+
+# -----------------------------------------------------------------------------
+# Financial Data (for FSA examples)
+# -----------------------------------------------------------------------------
+
+# Yahoo Finance
+yfinance>=0.2.28
+
+# Alpha Vantage
+alpha-vantage>=2.3.0
+
+# -----------------------------------------------------------------------------
+# AI/ML Integration (Optional)
+# -----------------------------------------------------------------------------
+
+# OpenAI client
+openai>=1.0.0,<2.0.0
+
+# Anthropic client
+anthropic>=0.7.0,<1.0.0
+
+# LangChain (optional)
+# langchain>=0.1.0
+
+# -----------------------------------------------------------------------------
+# Database Connectors (Optional)
+# -----------------------------------------------------------------------------
+
+# SQLAlchemy for database ORM
+sqlalchemy>=2.0.0,<3.0.0
+
+# Async database support
+databases>=0.8.0
+
+# PostgreSQL
+asyncpg>=0.28.0
+psycopg2-binary>=2.9.0
+
+# SQLite async
+aiosqlite>=0.19.0
+
+# -----------------------------------------------------------------------------
+# Message Queue (Optional)
+# -----------------------------------------------------------------------------
+
+# RabbitMQ
+aio-pika>=9.3.0
+
+# Kafka
+aiokafka>=0.9.0
+
+# -----------------------------------------------------------------------------
+# Observability (Optional)
+# -----------------------------------------------------------------------------
+
+# OpenTelemetry
+opentelemetry-api>=1.20.0
+opentelemetry-sdk>=1.20.0
+opentelemetry-instrumentation>=0.41b0
+
+# Prometheus metrics
+prometheus-client>=0.17.0
+
+# Sentry error tracking
+sentry-sdk>=1.31.0
